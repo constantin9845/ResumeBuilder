@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/public/css/builder.css">
+
+    <script src="/public/scripts/builder.js" defer></script>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous" defer></script>
+
+    <title>Resume Builder</title>
+</head>
+<body>
+    <div class="initial-setup">
+        <div class="setup-window">
+            <h1>Step 1</h1>
+            <p>Select your template:</p>
+            <div class="templates">
+                <div class="template_row">
+                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
+                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
+                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
+                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
+                </div>
+                <div class="template_row">
+                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
+                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
+                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
+                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
+                </div>
+                <div class="template_row">
+                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
+                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
+                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
+                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
+                </div>
+                <div class="template_row">
+                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
+                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
+                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
+                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
+                </div>
+            </div>
+        </div>
+        <div class="setup-window">
+            <h1>Step 2</h1>
+            <p>Fill in:</p>
+            <span>* Required</span>
+            <div class="credentials">
+                <div class="input-group">
+                    <label for="full-name">Full name:</label>
+                    <input type="text" name="full-name" id="full-name" required>
+                </div>
+                <div class="input-group">
+                    <label for="birth">Date of birth:</label>
+                    <input type="date" name="birth" id="birth">
+                </div>
+                <div class="input-group">
+                    <label for="address">Address:</label>
+                    <input type="text" name="address" id="address">
+                </div>
+                <div class="input-group">
+                    <label for="number">Phone Number:</label>
+                    <input type="text" name="number" id="number">
+                </div>
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" id="email">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="builder-view">
+        <div class="edit-container">
+
+            <div class="edit-input">
+                <label for="edit-summary">Summary:</label>
+                <textarea name="edit-summary" id="edit-summary" cols="30" rows="10"></textarea>
+            </div>
+
+            <div class="edit-input">
+                <div class="edit-skills-input">
+                    <label for="edit-skills">Add Skills</label>
+                    <input type="text" name="edit-skill" id="edit-skill">
+                    <p id="add-skill">+</p>
+                </div>
+                <div class="edit-skills-added">
+
+                </div>
+            </div>
+            
+        </div>
+        <div class="preview-container">
+            <div class="preview-template">
+                <div class="preview-credentials">
+                    <p id="preview-name"></p>
+                    <p id="preview-birth"></p>
+                    <p id="preview-address"></p>
+                    <p id="preview-number"></p>
+                    <p id="preview-email"></p>
+                </div>
+                <div class="preview-summary-container">
+                    <p>Summary: <br></p>
+                    <p id="preview-summary"></p>
+                </div>
+                <div class="preview-skills-container">
+                    <p>Essential Skills</p>
+                    <table class="preview-skills-table">
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

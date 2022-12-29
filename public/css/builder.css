@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+.initial-setup{
+    display: none;
+}
+
+.builder-view{
+    width: 100%;
+    background-color: yellow;
+    display: flex;
+    flex-direction: row;
+}
+
+.edit-container{
+    width: 50%;
+    background-color: aliceblue;
+}
+
+.preview-container{
+    width: 50%;
+    background-color: bisque;
+}
+
+
+#add-skill{
+    font-size: 38px;
+    border: 0.1px solid black;
+    cursor: pointer;
+}

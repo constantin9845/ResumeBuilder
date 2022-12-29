@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 
 const app = express(); 
 
@@ -13,6 +14,10 @@ app.set('views');
 app.get('/', (req,res)=>{
     res.render('landing.ejs');
 });
+
+app.get('/builder', (req,res)=>{
+    res.render('builder.ejs')
+})
 
 
 app.listen(PORT, ()=>{
