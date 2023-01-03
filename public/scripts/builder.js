@@ -178,4 +178,4 @@ deleteSkill()
 
 
 // Editing existing job => on click => fill edit fields with data => on save updated data => delete old one first => add new => ON SAME LOCATION
-// DELETING JOBS
+// DELETING JOBS + STYLING
