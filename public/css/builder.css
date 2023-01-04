@@ -38,10 +38,30 @@
     cursor: pointer;
 }
 
+#add-education{
+    font-size: 38px;
+    border: 0.1px solid black;
+    cursor: pointer;
+}
+
+#temporary-id{
+    font-size: 38px;
+    border: 0.1px solid black;
+    cursor: pointer;
+}
+
+
+
 /* 
     Styling of new elements added in preview
 */ 
 .single-job{
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+}
+
+.single-education{
     display: flex;
     flex-direction: row;
     background-color: red;
