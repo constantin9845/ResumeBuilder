@@ -96,8 +96,12 @@
     cursor: pointer;
 }
 
+.edit-container-nav p:nth-child(1){
+   color: red;
+}
+
 .edit-container-nav p:hover{
-    text-decoration: underline;
+    color: red;
 }
 
 .edit-input{
@@ -110,8 +114,9 @@
 
 .edit-input-title{
     font-size: 30px;
-    margin-left: 5px;
+    margin-left: 2%;
     margin-top: 50px;
+    margin-bottom: 35px;
 }
 
 .edit-input label{
@@ -124,58 +129,183 @@
 }
 
 .edit-input:nth-child(3) textarea{
-    width: 90%;
+    width: 94%;
     border: none;
     outline: none;
-    margin-left: 5px;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 15px;
     border-radius: 5px;
     height: 200px;
     font-size: 24px;
     padding: 5px;
 }
 
+#add-summary{
+    width: 20%;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+
+    font-size: 38px;
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+
+/* skills */
+.edit-skills-input{
+    display: flex;
+    flex-direction: row;
+    margin-left: 2%;
+}
+
+.edit-skills-input input{
+    width: 65%;
+    border: none;
+    border-bottom: 0.1px solid gray;
+    font-size: 24px;
+    outline: none;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+#add-skill{
+    width: 20%;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    margin-left: 5%;
+
+    font-size: 38px;
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+
+/* experience */
+
 .edit-input:nth-child(4){
     display: none;
 }
+
+.edit-experience-input{
+    display: flex;
+    flex-direction: column;
+    padding: 0% 2%;
+}
+
+.edit-experience-input label{
+    font-size: 16px;
+}
+
+.edit-experience-input input{
+    border: none;
+    border-bottom: 0.1px solid gray;
+    background-color: transparent;
+    outline: none;
+    font-size: 24px;
+    padding-left: 5px;
+    margin-bottom: 25px;
+}
+
+#add-experience{
+    width: 20%;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+
+    font-size: 38px;
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+
+/* education */
 .edit-input:nth-child(5){
     display: none;
 }
+
+.edit-education-input{
+    display: flex;
+    flex-direction: column;
+    padding: 0% 2%;
+}
+
+.edit-education-input label{
+    font-size: 16px;
+}
+
+.edit-education-input input{
+    border: none;
+    border-bottom: 0.1px solid gray;
+    background-color: transparent;
+    outline: none;
+    font-size: 24px;
+    padding-left: 5px;
+    margin-bottom: 25px;
+}
+
+#add-education{
+    width: 20%;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+
+    font-size: 38px;
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+
+/* reference */
 .edit-input:nth-child(6){
     display: none;
 }
+
+.edit-reference-input{
+    display: flex;
+    flex-direction: column;
+    padding: 0% 2%;
+}
+
+.edit-reference-input label{
+    font-size: 16px;
+}
+
+.edit-reference-input input{
+    border: none;
+    border-bottom: 0.1px solid gray;
+    background-color: transparent;
+    outline: none;
+    font-size: 24px;
+    padding-left: 5px;
+    margin-bottom: 25px;
+}
+
+#add-reference{
+    width: 20%;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+
+    font-size: 38px;
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+
 .edit-input:nth-child(7){
     display: none;
 }
 
 
 
-#add-skill{
-    font-size: 38px;
-    border: 0.1px solid black;
-    cursor: pointer;
-}
-
-#add-experience{
-    font-size: 38px;
-    border: 0.1px solid black;
-    cursor: pointer;
-}
-
-#add-education{
-    font-size: 38px;
-    border: 0.1px solid black;
-    cursor: pointer;
-}
-
-#add-reference{
-    font-size: 38px;
-    border: 0.1px solid black;
-    cursor: pointer;
-}
-
-#temporary-id{
-    font-size: 38px;
-    border: 0.1px solid black;
-    cursor: pointer;
-}
 

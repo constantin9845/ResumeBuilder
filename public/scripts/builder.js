@@ -1,28 +1,25 @@
 const inputId = '#edit-summary'
 const outputId = document.querySelector('#preview-summary');
 
-function textPreviewer(input,output){
-    let data = $(input).val();
-    let temp;
 
-    output.innerHTML = data;
-    output.style.textAlign = 'center';
+document.querySelector('#edit-summary').addEventListener('keydown', (event)=>{
 
-    document.querySelector('#edit-summary').addEventListener('keyup', (event)=>{
-        if(event.key === 'Enter'){
-            temp = true;
-            return;
-        };
-    });
-
-    if(temp == true){
-        output.innerHTML += '<br>';
-        temp = false;
+    if (event.key === 'Enter') {
+        outputId.insertAdjacentHTML('beforeend', '<br>');
+        return;
     };
-};
-
-document.querySelector('#edit-summary').addEventListener('keyup', ()=>{
-    textPreviewer(inputId,outputId)
+    if(event.key === 'Backspace'){
+        outputId.innerHTML = outputId.innerHTML.slice(0, -1);
+    }
+    if(event.key.match(/Shift|Backspace|Alt|Control/)){
+        return;
+    }
+    // letter input
+    if(!event.key.match(/[^a-zA-Z0-9]/|"Spacebar")){
+        outputId.innerHTML += event.key;
+        outputId.style.textAlign = 'center';
+        return;
+    };
 });
 
 
@@ -565,9 +562,121 @@ function modifyReference(){
 };
 
 
+// Edit menu transitions
+var buttons = document.querySelectorAll('.edit-container-nav-btn');
+var editSections = document.querySelectorAll('.edit-input');
+
+let btn0 = buttons[0];
+let btn1 = buttons[1];
+let btn2 = buttons[2];
+let btn3 = buttons[3];
+let btn4 = buttons[4];
+
+let section0 = editSections[0];
+let section1 = editSections[1];
+let section2 = editSections[2];
+let section3 = editSections[3];
+let section4 = editSections[4];
+
+// execute section interractions 
+function switchRecord(btn){
+    
+    if(btn == btn0){
+        hideSection(section1);
+        hideSection(section2);
+        hideSection(section3);
+        hideSection(section4);
+        openSection(section0);
+        btn0.style.color = 'red';
+        btn1.style.color = 'black';
+        btn2.style.color = 'black';
+        btn3.style.color = 'black';
+        btn4.style.color = 'black';
+    }
+
+    if(btn == btn1){
+        hideSection(section0);
+        hideSection(section2);
+        hideSection(section3);
+        hideSection(section4);
+        openSection(section1);
+        btn0.style.color = 'black';
+        btn1.style.color = 'red';
+        btn2.style.color = 'black';
+        btn3.style.color = 'black';
+        btn4.style.color = 'black';
+    }
+    
+    if(btn == btn2){
+        hideSection(section0);
+        hideSection(section1);
+        hideSection(section3);
+        hideSection(section4);
+        openSection(section2);
+        btn0.style.color = 'black';
+        btn1.style.color = 'black';
+        btn2.style.color = 'red';
+        btn3.style.color = 'black';
+        btn4.style.color = 'black';
+    }
+    
+    if(btn == btn3){
+        hideSection(section0);
+        hideSection(section1);
+        hideSection(section2);
+        hideSection(section4);
+        openSection(section3);
+        btn0.style.color = 'black';
+        btn1.style.color = 'black';
+        btn2.style.color = 'black';
+        btn3.style.color = 'red';
+        btn4.style.color = 'black';
+    }
+    
+    if(btn == btn4){
+        hideSection(section0);
+        hideSection(section1);
+        hideSection(section2);
+        hideSection(section3);
+        openSection(section4);
+        btn0.style.color = 'black';
+        btn1.style.color = 'black';
+        btn2.style.color = 'black';
+        btn3.style.color = 'black';
+        btn4.style.color = 'red';
+    }
+}
+
+function hideSection(section){
+    section.style.transitionDuration = '1s';
+    section.style.transform = 'translateY(2000px)';
+    section.style.display = 'none';
+};
+
+function openSection(section){
+    section.style.transitionDuration = '1s';
+    section.style.transform = 'translateY(0px)';
+    section.style.display = 'flex';
+};
+
+btn0.addEventListener('click',function(){
+    switchRecord(btn0);
+})
+btn1.addEventListener('click',function(){
+    switchRecord(btn1);
+})
+btn2.addEventListener('click',function(){
+    switchRecord(btn2);
+})
+btn3.addEventListener('click',function(){
+    switchRecord(btn3);
+})
+btn4.addEventListener('click',function(){
+    switchRecord(btn4);
+})
 
 
-// 
+// Description of experience > NEEDS TO BE TEXTAREA > DESCRIPTION REQUIRE MORE THAN ONE LINE
 // JOBS STYLING
 
 // Add AI text generator
