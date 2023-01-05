@@ -1,0 +1,14 @@
+/* 
+    Styling of new elements added in preview
+*/ 
+.single-job{
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+}
+
+.single-education{
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+}

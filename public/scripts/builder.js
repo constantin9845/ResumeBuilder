@@ -3,8 +3,22 @@ const outputId = document.querySelector('#preview-summary');
 
 function textPreviewer(input,output){
     let data = $(input).val();
+    let temp;
 
     output.innerHTML = data;
+    output.style.textAlign = 'center';
+
+    document.querySelector('#edit-summary').addEventListener('keyup', (event)=>{
+        if(event.key === 'Enter'){
+            temp = true;
+            return;
+        };
+    });
+
+    if(temp == true){
+        output.innerHTML += '<br>';
+        temp = false;
+    };
 };
 
 document.querySelector('#edit-summary').addEventListener('keyup', ()=>{
@@ -15,6 +29,7 @@ document.querySelector('#edit-summary').addEventListener('keyup', ()=>{
 const addSkill = document.querySelector('#add-skill');
 const addExperience = document.querySelector('#add-experience');
 const addEducation = document.querySelector('#add-education');
+const addReference = document.querySelector('#add-reference');
 
 const editSkill = document.querySelector('#edit-skill');
 const editExperienceTime = document.querySelector('#edit-experience-time');
@@ -25,11 +40,16 @@ const editEducationTime = document.querySelector('#edit-education-time');
 const editEducationTitle = document.querySelector('#edit-education-title');
 const editEducationdescription = document.querySelector('#edit-education-description');
 
+const editReferenceTitle = document.querySelector('#edit-reference-title');
+const editReferencedescription = document.querySelector('#edit-reference-description');
+
 const previewSkillTable = document.querySelector('.preview-skills-table');
 const previewExperienceTable = document.querySelector('.preview-experience-table');
 const previewEducationTable = document.querySelector('.preview-education-table');
+const previewReferenceTable = document.querySelector('.preview-reference-table');
 const previewSkillTableElems = previewSkillTable.querySelectorAll('td');
 
+// Preview Executers
 addSkill.addEventListener('click', function(){
     addingSkill();
     editSkill.value = '';
@@ -37,7 +57,7 @@ addSkill.addEventListener('click', function(){
 
 previewSkillTable.addEventListener('click', function(){
     deleteSkill();
-})
+});
 
 addExperience.addEventListener('click', function(){
     addingExperience();
@@ -48,7 +68,7 @@ addExperience.addEventListener('click', function(){
 
 previewExperienceTable.addEventListener('click', function(){
     modifyExperience();
-})
+});
 
 addEducation.addEventListener('click', function(){
     addingEducation();
@@ -59,8 +79,21 @@ addEducation.addEventListener('click', function(){
 
 previewEducationTable.addEventListener('click', function(){
     modifyEducation();
-})
+});
 
+addReference.addEventListener('click', function(){
+    addingReference();
+    editEducationTime.value = '';
+    editEducationTitle.value = '';
+    editEducationdescription.value = '';
+});
+
+previewReferenceTable.addEventListener('click', function(){
+    modifyReference();
+});
+
+
+// Preview Functions
 function addingSkill(){
 
     var allCells = previewSkillTable.querySelectorAll('td');
@@ -411,8 +444,125 @@ function modifyEducation(){
 
 };
 
+function addingReference(){
+    let referenceTitle = $('#edit-reference-title').val();
+    let referenceDescription = $('#edit-reference-description').val();
 
+    var allCells = previewReferenceTable.querySelectorAll('tr');
+    var allCellsLength = allCells.length;
 
+    if(referenceTitle != '' && referenceDescription != ''){
+        // create new tr and add to table
+        let newTR = document.createElement('tr');
+        newTR.className = 'single-ereference';
+
+        // create 2 divs with class names to style new element
+        let descriptionDiv = document.createElement('div');
+        let modifyDiv = document.createElement('div');
+        let contentDiv = document.createElement('div');
+
+        descriptionDiv.className = 'description-div';
+        modifyDiv.className = 'modify-div';
+        contentDiv.className = 'content-div';
+
+        let titleP = document.createElement('p');
+        let descriptionP = document.createElement('p');
+
+        titleP.className = `title-data-${allCellsLength}`;
+        descriptionP.className = `description-data-${allCellsLength}`;
+
+        // Delete and edit button for each job
+        let editEducation = document.createElement('p');
+        let deleteEducation = document.createElement('p');
+
+        editEducation.innerHTML = 'E';
+        deleteEducation.innerHTML = 'X';
+
+        editEducation.className = 'edit-reference-btn';
+        deleteEducation.className = 'delete-reference-btn';
+
+        editEducation.setAttribute('id',`${allCellsLength}`);
+        newTR.setAttribute('id', `tr-${allCellsLength}`);
+
+        titleP.innerHTML = referenceTitle;
+        descriptionP.innerHTML = referenceDescription;
+
+        modifyDiv.appendChild(editEducation);
+        modifyDiv.appendChild(deleteEducation);
+        descriptionDiv.appendChild(titleP);
+        descriptionDiv.appendChild(descriptionP);
+        
+        contentDiv.appendChild(descriptionDiv);
+        contentDiv.appendChild(modifyDiv);
+
+        newTR.appendChild(contentDiv);
+
+        previewReferenceTable.appendChild(newTR);
+
+        // clear fields after adding
+        document.querySelector('#edit-reference-title').value = '';
+        document.querySelector('#edit-reference-description').value = '';
+
+        return
+    };
+    if(referenceTitle == '' || referenceDescription == ''){
+        alert('Fill in all the fields!');
+        return;
+    };
+};
+
+function modifyReference(){
+    // get elem clicked on
+    var element = event.target;
+    var id = element.id;
+    var classVal = element.className;
+
+    var parent = element.parentNode;
+    parent = parent.parentNode;
+    parent = parent.parentNode;
+
+    // delete
+    if(classVal == 'delete-reference-btn'){
+        parent.remove();
+    }
+
+    // edit
+    if(classVal == 'edit-reference-btn'){
+        // get data
+        let title = parent.getElementsByClassName(`title-data-${id}`)[0].innerHTML;
+        let description = parent.getElementsByClassName(`description-data-${id}`)[0].innerHTML;
+
+        // fill data into input fields for edit
+        document.querySelector('#edit-reference-title').value = title;
+        document.querySelector('#edit-reference-description').value = description;
+
+        
+        let addBtn = document.querySelector('#add-reference');
+        addBtn.style.display = 'none';
+
+        let tempBtn = document.createElement('p');
+        tempBtn.id = 'temporary-id';
+        tempBtn.innerHTML = 'SAVE';
+
+        document.querySelector('.edit-reference-input').appendChild(tempBtn)
+
+        // save updated data + restore button
+        tempBtn.addEventListener('click', function(){
+            let newTitle = document.querySelector('#edit-reference-title').value;
+            let newDescription = document.querySelector('#edit-reference-description').value;
+
+            parent.getElementsByClassName(`title-data-${id}`)[0].innerHTML = newTitle;
+            parent.getElementsByClassName(`description-data-${id}`)[0].innerHTML = newDescription;
+
+            document.querySelector('#edit-reference-title').value = '';
+            document.querySelector('#edit-reference-description').value = '';
+
+            tempBtn.remove();
+            addBtn.style.display = 'block';
+        })
+    }
+
+};
 
 
 
@@ -420,4 +570,4 @@ function modifyEducation(){
 // 
 // JOBS STYLING
 
-//
+// Add AI text generator

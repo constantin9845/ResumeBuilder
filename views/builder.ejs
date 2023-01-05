@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="/public/css/builder.css">
+    <link rel="stylesheet" href="/public/css/template1.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <style> @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap'); </style>
 
     <script src="/public/scripts/builder.js" defer></script>
     <script
@@ -75,26 +81,43 @@
             </div>
         </div>
     </div>
+    <div class="nav-bar">
+        <img src="/public/media/images/logo.png" alt="logo" id="nav-logo">
+        <div class="nav-links">
+            <p class="nav-link">Home</p>
+            <p class="nav-link">Resume</p>
+            <p class="nav-link">Contact</p>
+            <p class="nav-link">About</p>
+        </div>
+    </div>
     <div class="builder-view">
         <div class="edit-container">
+            <h2>Use the fields below to add your information</h2>
 
-            <div class="edit-input">
-                <label for="edit-summary">Summary:</label>
-                <textarea name="edit-summary" id="edit-summary" cols="30" rows="10"></textarea>
+            <div class="edit-container-nav">
+                <p>Summary</p>
+                <p>Skills</p>
+                <p>Experience</p>
+                <p>Education</p>
+                <p>References</p>
             </div>
 
             <div class="edit-input">
+                <p class="edit-input-title">Describe your profile in a couple lines</p>
+                <textarea name="edit-summary" id="edit-summary"></textarea>
+            </div>
+
+            <div class="edit-input">
+                <p class="edit-input-title">Add your most valuable skills</p>
                 <div class="edit-skills-input">
                     <label for="edit-skills">Add Skills</label>
                     <input type="text" name="edit-skill" id="edit-skill">
                     <p id="add-skill">+</p>
                 </div>
-                <div class="edit-skills-added">
-
-                </div>
             </div>
 
             <div class="edit-input">
+                <p class="edit-input-title">Describe your professional carreer so far</p>
                 <div class="edit-experience-input">
                     <label for="edit-experience-time">Time</label>
                     <input type="text" name="edit-experience-time" id="edit-experience-time">
@@ -110,6 +133,7 @@
             </div>
 
             <div class="edit-input">
+                <p class="edit-input-title">Show what academic achievement you have in your locker</p>
                 <div class="edit-education-input">
                     <label for="edit-education-time">Period</label>
                     <input type="text" name="edit-education-time" id="edit-education-time">
@@ -121,6 +145,20 @@
                     <input type="text" name="edit-education-description" id="edit-education-description">
 
                     <p id="add-education">+</p>
+                </div>
+            </div>
+
+            <div class="edit-input">
+                <p class="edit-input-title">Add References that can be contacted</p>
+                <div class="edit-reference-input">
+
+                    <label for="edit-reference-title">Name and Position</label>
+                    <input type="text" name="edit-reference-title" id="edit-reference-title">
+
+                    <label for="edit-reference-description">Contact Information</label>
+                    <input type="text" name="edit-reference-description" id="edit-reference-description">
+
+                    <p id="add-reference">+</p>
                 </div>
             </div>
             
@@ -153,6 +191,12 @@
                 <div class="preview-education-container">
                     <p>Education</p>
                     <table class="preview-education-table">
+
+                    </table>
+                </div>
+                <div class="preview-reference-container">
+                    <p>References</p>
+                    <table class="preview-reference-table">
 
                     </table>
                 </div>
