@@ -1,26 +1,91 @@
-const inputId = '#edit-summary'
+const inputId = document.querySelector('#edit-summary');
 const outputId = document.querySelector('#preview-summary');
 
+let tempStorage = '<p>';
 
-document.querySelector('#edit-summary').addEventListener('keydown', (event)=>{
-
+inputId.addEventListener('keydown',(event)=>{
     if (event.key === 'Enter') {
-        outputId.insertAdjacentHTML('beforeend', '<br>');
+        alert('enter')
+        inputId.value = inputId.value.concat(' ', '<br>');
         return;
     };
-    if(event.key === 'Backspace'){
-        outputId.innerHTML = outputId.innerHTML.slice(0, -1);
-    }
-    if(event.key.match(/Shift|Backspace|Alt|Control/)){
-        return;
-    }
-    // letter input
-    if(!event.key.match(/[^a-zA-Z0-9]/|"Spacebar")){
-        outputId.innerHTML += event.key;
-        outputId.style.textAlign = 'center';
-        return;
-    };
+
+
+})
+
+
+document.querySelector('#add-summary').addEventListener('click', ()=>{
+    outputId.innerHTML = inputId.value;
+    outputId.style.textAlign = 'center';
 });
+
+
+const setupPopUp = document.querySelector('.initial-setup');
+const buildView = document.querySelector('.builder-view');
+var allTemplates = document.querySelectorAll('.template');
+var allTemplateImages = document.querySelectorAll('.template-img');
+var allTemplateP = document.querySelectorAll('.template-p');
+const setup1 = document.querySelector('#setup-step1');
+const setup2 = document.querySelector('#setup-step2');
+
+const saveCredentials = document.querySelector('#save-credentials');
+
+var totalArr = [];
+
+for (let i = 0; i < allTemplates.length; i++) {
+    totalArr.push(allTemplates[i]);
+    totalArr.push(allTemplateImages[i]);
+    totalArr.push(allTemplateP[i]);
+};
+
+// SET UP POP UP
+buildView.style.display = 'none';
+var templateSelected = undefined;
+
+for(let i = 0; i < totalArr.length; i++){
+    totalArr[i].addEventListener('click', function(event){
+        var element = event.target;
+
+        var id = element.id;
+
+        templateSelected = id;
+        
+        // template chosen => apply styling for preview container here
+        // // 
+        // //
+
+        // Fill in credentials
+        setup1.style.display = 'none';
+        setup2.style.display = 'flex';
+
+        saveCredentials.addEventListener('click', function(){
+            const myName = $('#full-name').val();
+            const myBirth = $('#birth').val();
+            const myAddress = $('#address').val();
+            const myNumber = $('#number').val();
+            const myEmail = $('#email').val();
+
+            if(myName == '' || myAddress == '' || myEmail == ''){
+                alert('Fill in all required fields')
+                return;
+            }
+
+            // Show editor mode
+            setup2.style.display = 'none';
+            setupPopUp.style.display = 'none';
+            buildView.style.display = 'flex';
+
+
+            // fill in credentials + style
+
+        })
+        return templateSelected;
+    })
+}
+
+
+
+
 
 
 const addSkill = document.querySelector('#add-skill');

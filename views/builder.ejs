@@ -23,71 +23,79 @@
 </head>
 <body>
     <div class="initial-setup">
-        <div class="setup-window">
-            <h1>Step 1</h1>
-            <p>Select your template:</p>
+        <div id="setup-step1" class="setup-window">
+            <div class="close-setup"><a href="/">Close</a></div>
+            <div class="setup-titles">
+                <h1>Step 1</h1>
+                <p>Select your template:</p>
+            </div>
             <div class="templates">
                 <div class="template_row">
-                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
-                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
-                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
-                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
+                    <div id="1" class="template"><img class="template-img" id="1" src="/public/media/images/resume.png" alt="resume template"><p id="1" class="template-p">Template 1</p></div>
+                    <div id="2" class="template"><img class="template-img" id="2" src="/public/media/images/resume.png" alt="resume template"><p id="2" class="template-p">Template 2</p></div>
+                    <div id="3" class="template"><img class="template-img" id="3" src="/public/media/images/resume.png" alt="resume template"><p id="3" class="template-p">Template 3</p></div>
+                    <div id="4" class="template"><img class="template-img" id="4" src="/public/media/images/resume.png" alt="resume template"><p id="4" class="template-p">Template 4</p></div>
                 </div>
                 <div class="template_row">
-                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
-                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
-                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
-                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
+                    <div id="5" class="template"><img class="template-img" id="5" src="/public/media/images/resume.png" alt="resume template"><p id="5" class="template-p">Template 5</p></div>
+                    <div id="6" class="template"><img class="template-img" id="6" src="/public/media/images/resume.png" alt="resume template"><p id="6" class="template-p">Template 6</p></div>
+                    <div id="7" class="template"><img class="template-img" id="7" src="/public/media/images/resume.png" alt="resume template"><p id="7" class="template-p">Template 7</p></div>
+                    <div id="8" class="template"><img class="template-img" id="8" src="/public/media/images/resume.png" alt="resume template"><p id="8" class="template-p">Template 8</p></div>
                 </div>
                 <div class="template_row">
-                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
-                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
-                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
-                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
+                    <div id="9" class="template"><img class="template-img" id="9" src="/public/media/images/resume.png" alt="resume template"><p id="9" class="template-p">Template 9</p></div>
+                    <div id="10" class="template"><img class="template-img" id="10" src="/public/media/images/resume.png" alt="resume template"><p id="10" class="template-p">Template 10</p></div>
+                    <div id="11" class="template"><img class="template-img" id="11" src="/public/media/images/resume.png" alt="resume template"><p id="11" class="template-p">Template 11</p></div>
+                    <div id="12" class="template"><img class="template-img" id="12" src="/public/media/images/resume.png" alt="resume template"><p id="12" class="template-p">Template 12</p></div>
                 </div>
                 <div class="template_row">
-                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
-                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
-                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
-                    <div class="template"><img src="/public/media/images/resume.png" alt="resume template"></div>
+                    <div id="13" class="template"><img class="template-img" id="13" src="/public/media/images/resume.png" alt="resume template"><p id="13" class="template-p">Template 13</p></div>
+                    <div id="14" class="template"><img class="template-img" id="14" src="/public/media/images/resume.png" alt="resume template"><p id="14" class="template-p">Template 14</p></div>
+                    <div id="15" class="template"><img class="template-img" id="15" src="/public/media/images/resume.png" alt="resume template"><p id="15" class="template-p">Template 15</p></div>
+                    <div id="16" class="template"><img class="template-img" id="16" src="/public/media/images/resume.png" alt="resume template"><p id="16" class="template-p">Template 16</p></div>
                 </div>
             </div>
         </div>
-        <div class="setup-window">
-            <h1>Step 2</h1>
-            <p>Fill in:</p>
-            <span>* Required</span>
+        <div id="setup-step2" class="setup-window">
+            <div class="close-setup"><a href="/">Close</a></div>
+            <div class="setup-titles">
+                <h1>Step 2</h1>
+                <p>Fill in:</p>
+                <span>* Required</span>
+            </div>
             <div class="credentials">
                 <div class="input-group">
-                    <label for="full-name">Full name:</label>
+                    <label for="full-name">Full name*</label>
                     <input type="text" name="full-name" id="full-name" required>
                 </div>
                 <div class="input-group">
-                    <label for="birth">Date of birth:</label>
+                    <label for="birth">Date of birth*</label>
                     <input type="date" name="birth" id="birth">
                 </div>
                 <div class="input-group">
-                    <label for="address">Address:</label>
+                    <label for="address">Address*</label>
                     <input type="text" name="address" id="address">
                 </div>
                 <div class="input-group">
-                    <label for="number">Phone Number:</label>
+                    <label for="number">Phone Number</label>
                     <input type="text" name="number" id="number">
                 </div>
                 <div class="input-group">
-                    <label for="email">Email:</label>
+                    <label for="email">Email*</label>
                     <input type="text" name="email" id="email">
                 </div>
+
+                <p id="save-credentials">Save</p>
             </div>
         </div>
     </div>
     <div class="nav-bar">
         <img src="/public/media/images/logo.png" alt="logo" id="nav-logo">
         <div class="nav-links">
-            <p class="nav-link">Home</p>
-            <p class="nav-link">Resume</p>
-            <p class="nav-link">Contact</p>
-            <p class="nav-link">About</p>
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/builder">Resume</a>
+            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#">About</a>
         </div>
     </div>
     <div class="builder-view">
