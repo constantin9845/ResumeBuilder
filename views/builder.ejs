@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="/public/css/builder.css">
-    <link rel="stylesheet" href="/public/css/template1.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -117,7 +116,8 @@
             </div>
 
             <div class="edit-input">
-                <p class="edit-input-title">Add your most valuable skills</p>
+                <p class="edit-input-title">Add your most valuable skills (Max 9)</p>
+                <span style="margin-bottom: 5px; margin-left: 5px; color: gray;">*Click on skill to Delete</span>
                 <div class="edit-skills-input">
                     <input type="text" name="edit-skill" id="edit-skill">
                     <p id="add-skill">Add</p>
@@ -175,23 +175,35 @@
             <div class="preview-template">
                 <div class="preview-credentials">
                     <p id="preview-name"></p>
-                    <p id="preview-birth"></p>
-                    <p id="preview-address"></p>
-                    <p id="preview-number"></p>
-                    <p id="preview-email"></p>
+                    <div class="credential-line">
+                        <p class="preview-credential" id="preview-birth">Date of Birth</p>
+                        <span class="credentials-span-birth"></span>
+                    </div>
+                    <div class="credential-line">
+                        <p class="preview-credential" id="preview-address">Address</p>
+                        <span class="credentials-span-address"></span>
+                    </div>
+                    <div class="credential-line">
+                        <p class="preview-credential" id="preview-number">Number</p>
+                        <span class="credentials-span-number"></span>
+                    </div>
+                    <div class="credential-line">
+                        <p class="preview-credential" id="preview-email">Email</p>
+                        <span class="credentials-span-email"></span>
+                    </div>
                 </div>
                 <div class="preview-summary-container">
-                    <p>Summary: <br></p>
+                    <p id="preview-summary-title">Summary: <br></p>
                     <p id="preview-summary"></p>
                 </div>
                 <div class="preview-skills-container">
-                    <p>Essential Skills</p>
+                    <p id="preview-skills-title">Essential Skills</p>
                     <table class="preview-skills-table">
 
                     </table>
                 </div>
                 <div class="preview-experience-container">
-                    <p>Experience</p>
+                    <p id="preview-experience-title">Experience</p>
                     <table class="preview-experience-table">
 
                     </table>

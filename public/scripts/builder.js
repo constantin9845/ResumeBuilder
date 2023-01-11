@@ -5,12 +5,9 @@ let tempStorage = '<p>';
 
 inputId.addEventListener('keydown',(event)=>{
     if (event.key === 'Enter') {
-        alert('enter')
         inputId.value = inputId.value.concat(' ', '<br>');
         return;
     };
-
-
 })
 
 
@@ -60,7 +57,7 @@ for(let i = 0; i < totalArr.length; i++){
 
         saveCredentials.addEventListener('click', function(){
             const myName = $('#full-name').val();
-            const myBirth = $('#birth').val();
+            const myBirth =  $('#birth').val();
             const myAddress = $('#address').val();
             const myNumber = $('#number').val();
             const myEmail = $('#email').val();
@@ -75,8 +72,32 @@ for(let i = 0; i < totalArr.length; i++){
             setupPopUp.style.display = 'none';
             buildView.style.display = 'flex';
 
+            // Add new css file based on which template was chosen
+            function addCSSTemplate(template){
+                // Create the link element
+                var link = document.createElement("link");
+                link.href = `/public/css/template${template}.css`;
+                link.rel = "stylesheet";
+             
+                // Add the link element to the head of the HTML document
+                document.head.appendChild(link);
+            }
+
+            addCSSTemplate(templateSelected);
+
 
             // fill in credentials + style
+            const previewName = document.querySelector('#preview-name');
+            const previewBirth = document.querySelector('.credentials-span-birth');
+            const previewAddress = document.querySelector('.credentials-span-address');
+            const previewNumber = document.querySelector('.credentials-span-number');
+            const previewEmail = document.querySelector('.credentials-span-email');
+
+            previewName.innerHTML = myName;
+            previewBirth.innerHTML = myBirth;
+            previewAddress.innerHTML = myAddress;
+            previewNumber.innerHTML = myNumber;
+            previewEmail.innerHTML = myEmail;
 
         })
         return templateSelected;
@@ -167,7 +188,7 @@ function addingSkill(){
     };
 
     let rows = previewSkillTable.rows; 
-    let data = $('#edit-skill').val();
+    let data = `&#x2022; ${$('#edit-skill').val()}`;
 
     // check if field is not empty
     if(data != ''){
@@ -175,9 +196,11 @@ function addingSkill(){
         if(rows.length == 0){
             // make a new tr elem
             let newTR = document.createElement('tr');
+            newTR.className = 'skill-row';
             previewSkillTable.appendChild(newTR);
 
             let newTD = document.createElement('td');
+            newTD.className = 'skill-cell';
             newTD.innerHTML = data;
             rows.item(0).appendChild(newTD);
 
@@ -192,11 +215,13 @@ function addingSkill(){
             if(lastRow.children.length == 3){
                 // make new row first
                 let newTR = document.createElement('tr');
+                newTR.className = 'skill-row';
                 previewSkillTable.appendChild(newTR);
 
                 lastRow = rows.item(rows.length - 1);
 
                 let newTD = document.createElement('td');
+                newTD.className = 'skill-cell';
                 newTD.innerHTML = data;
                 lastRow.appendChild(newTD);
 
@@ -207,6 +232,7 @@ function addingSkill(){
 
             if(lastRow.children.length < 3){
                 let newTD = document.createElement('td');
+                newTD.className = 'skill-cell';
                 newTD.innerHTML = data;
                 lastRow.appendChild(newTD);
 
@@ -252,7 +278,7 @@ function addingExperience(){
     if(time != '' && jobTitle != '' && jobDescription != ''){
         // create new tr and add to table
         let newTR = document.createElement('tr');
-        newTR.className = 'single-job';
+        newTR.className = 'experience-row';
 
         // create 4 divs with class names to style new element
         let timeDiv = document.createElement('div');

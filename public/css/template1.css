@@ -1,14 +1,171 @@
 /* 
     Styling of new elements added in preview
 */ 
-.single-job{
+
+#preview-name{
+    font-size: 36px;
+    margin-left: 10%;
+    margin-top: 10%;
+    margin-bottom: 35px;
+    font-weight: 800;
+}
+
+.credential-line{
+    display: flex;
+    flex-direction: row;
+}
+
+.preview-credential{
+    margin-left: 12%;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 5px;
+    width: 20%;
+}
+
+.credential-line span{
+    margin-left: 2%;
+    font-size: 20px;
+    font-weight: 300;
+    width: 100%;
+}
+
+/* summary */
+.preview-summary-container{
+    margin-top: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#preview-summary-title{
+    font-weight: 600;
+    font-size: 24px;
+    padding-bottom: 10px;
+    border-bottom: 10px solid rgb(86, 148, 219);
+}
+
+#preview-summary{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    text-align: center;
+    width: 95%;
+}
+
+/* skills */
+.preview-skills-container{
+    margin-top: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#preview-skills-title{
+    font-weight: 600;
+    font-size: 24px;
+    padding-bottom: 10px;
+    border-bottom: 10px solid rgb(86, 148, 219);
+    margin-bottom: 15px;
+}
+
+.preview-skills-table{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.skill-row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.skill-cell{
+    width: 33%;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: dotted;
+    cursor: pointer;
+}
+
+.skill-cell:hover{
+    transition: 0.3s ease-in-out all;
+    color: red;
+}
+
+/* eXPERIENCE */
+.preview-experience-container{
+    margin-top: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#preview-experience-title{
+    font-weight: 600;
+    font-size: 24px;
+    padding-bottom: 10px;
+    border-bottom: 10px solid rgb(86, 148, 219);
+    margin-bottom: 15px;
+}
+
+.preview-experience-table{
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.experience-row{
+    width: 100%;
     display: flex;
     flex-direction: row;
     background-color: red;
 }
 
-.single-education{
+.time-div{
+    width: 25%;
+    padding: 5px;
+
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.content-div{
+    width: 75%;
+    padding: 5px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.modify-div{
+    grid-area: 1 / 2 / 2 / 3;
     display: flex;
     flex-direction: row;
-    background-color: red;
+    width: 20%;
+    background-color: yellowgreen;
+};
+
+.title-div{
+    grid-area: 1 / 1 / 2 / 2;
+    width: 80%;
+}
+
+.title-div p{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.description-div{
+    grid-area: 2 / 1 / 3 / 3;
+    font-size: 14px;
 }
