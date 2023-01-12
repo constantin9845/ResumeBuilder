@@ -1,14 +1,13 @@
+// catching enter input to add <br>
 const inputId = document.querySelector('#edit-summary');
 const outputId = document.querySelector('#preview-summary');
-
-let tempStorage = '<p>';
 
 inputId.addEventListener('keydown',(event)=>{
     if (event.key === 'Enter') {
         inputId.value = inputId.value.concat(' ', '<br>');
         return;
     };
-})
+});
 
 
 document.querySelector('#add-summary').addEventListener('click', ()=>{
@@ -16,6 +15,13 @@ document.querySelector('#add-summary').addEventListener('click', ()=>{
     outputId.style.textAlign = 'center';
 });
 
+// catching enter input to add <br>
+document.querySelector('#edit-experience-description').addEventListener('keydown',(event)=>{
+    if (event.key === 'Enter') {
+        document.querySelector('#edit-experience-description').value = document.querySelector('#edit-experience-description').value.concat(' ', '<br>');
+        return;
+    };
+});
 
 const setupPopUp = document.querySelector('.initial-setup');
 const buildView = document.querySelector('.builder-view');
@@ -272,6 +278,7 @@ function addingExperience(){
     let jobTitle = $('#edit-experience-title').val();
     let jobDescription = $('#edit-experience-description').val();
 
+
     var allCells = previewExperienceTable.querySelectorAll('tr');
     var allCellsLength = allCells.length;
 
@@ -295,7 +302,7 @@ function addingExperience(){
         let editJob = document.createElement('p');
         let deleteJob = document.createElement('p');
 
-        editJob.innerHTML = 'E';
+        editJob.innerHTML = 'EDIT';
         deleteJob.innerHTML = 'X';
 
         editJob.className = 'edit-job-btn';
@@ -357,7 +364,7 @@ function modifyExperience(){
     }
 
     // edit
-    if(classVal == 'edit-job-btn'){
+    if(classVal == 'edit-job-btn' && !document.getElementById('temporary-id')){
         // get data
         let time = parent.getElementsByClassName(`time-data-${id}`)[0].innerHTML;
         let title = parent.getElementsByClassName(`title-data-${id}`)[0].innerHTML;
@@ -428,7 +435,7 @@ function addingEducation(){
         let editEducation = document.createElement('p');
         let deleteEducation = document.createElement('p');
 
-        editEducation.innerHTML = 'E';
+        editEducation.innerHTML = 'EDIT';
         deleteEducation.innerHTML = 'X';
 
         editEducation.className = 'edit-education-btn';
@@ -490,7 +497,7 @@ function modifyEducation(){
     }
 
     // edit
-    if(classVal == 'edit-education-btn'){
+    if(classVal == 'edit-education-btn' && !document.getElementById('temporary-id')){
         // get data
         let time = parent.getElementsByClassName(`time-data-${id}`)[0].innerHTML;
         let title = parent.getElementsByClassName(`title-data-${id}`)[0].innerHTML;
@@ -542,7 +549,7 @@ function addingReference(){
     if(referenceTitle != '' && referenceDescription != ''){
         // create new tr and add to table
         let newTR = document.createElement('tr');
-        newTR.className = 'single-ereference';
+        newTR.className = 'single-reference';
 
         // create 2 divs with class names to style new element
         let descriptionDiv = document.createElement('div');
@@ -551,7 +558,7 @@ function addingReference(){
 
         descriptionDiv.className = 'description-div';
         modifyDiv.className = 'modify-div';
-        contentDiv.className = 'content-div';
+        contentDiv.className = 'content-div-reference';
 
         let titleP = document.createElement('p');
         let descriptionP = document.createElement('p');
@@ -559,11 +566,17 @@ function addingReference(){
         titleP.className = `title-data-${allCellsLength}`;
         descriptionP.className = `description-data-${allCellsLength}`;
 
+        titleP.classList.add('reference-title');
+        descriptionP.classList.add('reference-description');
+
+        titleP.setAttribute('id', `title-data-${allCellsLength}`);
+        descriptionP.setAttribute('id', `description-data-${allCellsLength}`)
+
         // Delete and edit button for each job
         let editEducation = document.createElement('p');
         let deleteEducation = document.createElement('p');
 
-        editEducation.innerHTML = 'E';
+        editEducation.innerHTML = 'EDIT';
         deleteEducation.innerHTML = 'X';
 
         editEducation.className = 'edit-reference-btn';
@@ -615,7 +628,7 @@ function modifyReference(){
     }
 
     // edit
-    if(classVal == 'edit-reference-btn'){
+    if(classVal == 'edit-reference-btn' && !document.getElementById('temporary-id')){
         // get data
         let title = parent.getElementsByClassName(`title-data-${id}`)[0].innerHTML;
         let description = parent.getElementsByClassName(`description-data-${id}`)[0].innerHTML;
@@ -768,6 +781,8 @@ btn4.addEventListener('click',function(){
 
 
 // Description of experience > NEEDS TO BE TEXTAREA > DESCRIPTION REQUIRE MORE THAN ONE LINE
-// JOBS STYLING
+// 
+
+// Create custom section creator, can choose category title etc..
 
 // Add AI text generator
