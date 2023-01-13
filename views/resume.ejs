@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <link rel="stylesheet" href="/public/css/template1.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <style> @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap'); </style>
+
+    <script src="/public/scripts/builder.js" defer></script>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous" defer></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="preview-container">
+        <div class="preview-template">
+            <div class="preview-credentials">
+                <p id="preview-name"><%= titleName %></p>
+                <div class="credential-line">
+                    <p class="preview-credential" id="preview-birth">Date of Birth</p>
+                    <span class="credentials-span-birth"><%= birth %></span>
+                </div>
+                <div class="credential-line">
+                    <p class="preview-credential" id="preview-address">Address</p>
+                    <span class="credentials-span-address"><%= address %></span>
+                </div>
+                <div class="credential-line">
+                    <p class="preview-credential" id="preview-number">Number</p>
+                    <span class="credentials-span-number"><%= phone %></span>
+                </div>
+                <div class="credential-line">
+                    <p class="preview-credential" id="preview-email">Email</p>
+                    <span class="credentials-span-email"><%= email %></span>
+                </div>
+            </div>
+            <div class="preview-summary-container">
+                <p id="preview-summary-title">Summary: <br></p>
+                <p id="preview-summary"><%= summary %></p>
+            </div>
+            <div class="preview-skills-container">
+                <p id="preview-skills-title">Essential Skills</p>
+                <table class="preview-skills-table display-skills-table">
+                    <%= skills %>
+                </table>
+            </div>
+            <div class="preview-experience-container">
+                <p id="preview-experience-title">Experience</p>
+                <table class="preview-experience-table">
+
+                </table>
+            </div>
+            <div class="preview-education-container">
+                <p id="preview-education-title">Education</p>
+                <table class="preview-education-table">
+
+                </table>
+            </div>
+            <div class="preview-reference-container">
+                <p id="preview-reference-title">References</p>
+                <table class="preview-reference-table">
+
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

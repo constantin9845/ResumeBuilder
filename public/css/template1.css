@@ -217,9 +217,7 @@
 
 /* References */
 .preview-reference-container{
-    margin-top: 50px;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 50px 10% 10% 10%;
 }
 
 #preview-reference-title{
@@ -269,4 +267,11 @@
 
 .content-div-reference .modify-div{
     width: 20%;
+}
+
+@media print{
+    /* Reduce the size of the element */
+   .preview-container {
+        transform: scale(0.6);
+   }
 }

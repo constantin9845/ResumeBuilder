@@ -779,9 +779,52 @@ btn4.addEventListener('click',function(){
     switchRecord(btn4);
 })
 
+window.addEventListener("beforeunload", function (e) {
+    var confirmationMessage = "Are you sure you want to leave or reload the page?";
+  
+    (e || window.event).returnValue = confirmationMessage; // Gecko + IE
+    return confirmationMessage; // Webkit, Safari, Chrome etc.
+});
 
-// Description of experience > NEEDS TO BE TEXTAREA > DESCRIPTION REQUIRE MORE THAN ONE LINE
-// 
+// sending all data to server to generate result
+document.querySelector('#save-pdf').addEventListener('click', function(){
+    $.ajax({
+        url: '/resume',
+        type: 'GET',
+        data: {
+            // Get all data
+    
+            // Heading
+            titleName: document.querySelector('#preview-name').innerHTML,
+            birth: document.querySelector('.credentials-span-birth').innerHTML,
+            address: document.querySelector('.credentials-span-address').innerHTML,
+            phone: document.querySelector('.credentials-span-number').innerHTML,
+            email: document.querySelector('.credentials-span-email').innerHTML,
+    
+            summary: document.querySelector('#preview-summary').innerHTML,
+    
+            skills: document.querySelector('.preview-skills-table').innerHTML,
+    
+        },
+        success: function(data){
+            if(data.status == false){
+                alert('Error');
+            }
+            if(data.status == true){
+                alert('success');
+                let testSkills = data.skillsTable;
+                window.location.href = '/result-display';
+            }
+        },
+        error: function (request, status, error) {
+            console.log(request.responseText);
+        }
+    })
+});
+
+
+// Create a pdf file from html
+// TO ADD TABLE DATA => TAKE ALL INPUTS SEPARATLY AND ADD TO NEW TABLE (DO NOT TAKE WHOLE HTML SECTION AS INPUT)
 
 // Create custom section creator, can choose category title etc..
 
