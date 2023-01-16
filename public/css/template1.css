@@ -2,6 +2,13 @@
     Styling of new elements added in preview
 */ 
 
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+}
+
 #preview-name{
     font-size: 36px;
     margin-left: 10%;
@@ -91,6 +98,10 @@
     cursor: pointer;
 }
 
+tbody{
+    width: 100%;
+}
+
 .skill-cell:hover{
     transition: 0.3s ease-in-out all;
     color: red;
@@ -122,6 +133,13 @@
 }
 
 .experience-row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+
+.experience-row td{
     width: 100%;
     display: flex;
     flex-direction: row;

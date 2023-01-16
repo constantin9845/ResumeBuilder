@@ -315,6 +315,10 @@ function addingExperience(){
         titleP.className = `title-data-${allCellsLength}`;
         descriptionP.className = `description-data-${allCellsLength}`;
 
+        timeP.classList.add('experience-time');
+        titleP.classList.add('experience-title');
+        descriptionP.classList.add('experience-description');
+
         timeP.innerHTML = time;
         titleP.innerHTML = jobTitle;
         descriptionP.innerHTML = jobDescription;
@@ -448,6 +452,10 @@ function addingEducation(){
         titleP.className = `title-data-${allCellsLength}`;
         descriptionP.className = `description-data-${allCellsLength}`;
 
+        timeP.classList.add('education-time');
+        titleP.classList.add('education-title');
+        descriptionP.classList.add('education-description');
+
         timeP.innerHTML = time;
         titleP.innerHTML = educationTitle;
         descriptionP.innerHTML = educationDescription;
@@ -565,6 +573,9 @@ function addingReference(){
 
         titleP.className = `title-data-${allCellsLength}`;
         descriptionP.className = `description-data-${allCellsLength}`;
+
+        titleP.classList.add('reference-title');
+        descriptionP.classList.add('reference-description');
 
         titleP.classList.add('reference-title');
         descriptionP.classList.add('reference-description');
@@ -788,6 +799,81 @@ window.addEventListener("beforeunload", function (e) {
 
 // sending all data to server to generate result
 document.querySelector('#save-pdf').addEventListener('click', function(){
+
+    // Summary
+    let summary = document.querySelector('#preview-summary').innerHTML;
+    let tempSummary = [];
+
+    tempSummary = summary.split('<br>');
+
+    for(let i = 0; i < tempSummary.length; i++){
+        tempSummary[i] = tempSummary[i].replace('\n','');
+    };
+
+    // getting skills
+    let skillsList = document.querySelectorAll('.skill-cell');
+    let skillsCollection = []
+    for(let i = 0; i < skillsList.length; i++){
+        skillsCollection.push(skillsList[i].innerHTML);
+    };
+
+    // getting data for experience section
+    let experienceTimeCollection = document.querySelectorAll('.experience-time');
+    let experienceTitleCollection = document.querySelectorAll('.experience-title');
+    let experienceDescriptionCollection = document.querySelectorAll('.experience-description');
+
+    let tempExperienceTime = [];
+    let tempExperienceTitle = [];
+    let tempExperienceDescription = [];
+    let tempExperienceDescriptionResult = [];
+
+    for(let i = 0; i < experienceTimeCollection.length; i ++){
+        tempExperienceTime.push(experienceTimeCollection[i].innerHTML);
+        tempExperienceTitle.push(experienceTitleCollection[i].innerHTML);
+        tempExperienceDescription.push(experienceDescriptionCollection[i].innerHTML);
+    }
+
+    for(let i = 0; i < tempExperienceDescription.length; i++){
+        let tempresult = tempExperienceDescription[i].split('<br>');
+
+        tempExperienceDescriptionResult.push(tempresult);
+    }
+
+    for(let i = 0; i < tempExperienceDescriptionResult.length; i++){
+        for(let k = 0; k < tempExperienceDescriptionResult[i].length; k++){
+            tempExperienceDescriptionResult[i][k] = tempExperienceDescriptionResult[i][k].replace('\n','');
+        }
+    }
+
+
+    // getting data for education section
+    let educationTimeCollection = document.querySelectorAll('.education-time');
+    let educationTitleCollection = document.querySelectorAll('.education-title');
+    let EducationDescriptionCollection = document.querySelectorAll('.education-description');
+
+    let tempEducationTime = [];
+    let tempEducationTitle = [];
+    let tempEducationDescription = [];
+
+    for(let i = 0; i < educationTimeCollection.length; i ++){
+        tempEducationTime.push(educationTimeCollection[i].innerHTML);
+        tempEducationTitle.push(educationTitleCollection[i].innerHTML);
+        tempEducationDescription.push(EducationDescriptionCollection[i].innerHTML);
+    }
+
+
+    // getting data for references
+    let referenceTitleCollection = document.querySelectorAll('.reference-title');
+    let referenceDescriptionCollection = document.querySelectorAll('.reference-description');
+
+    let tempRefernceTitle = [];
+    let tempRefernceDescription = [];
+
+    for(let i = 0; i < referenceTitleCollection.length; i ++){
+        tempRefernceTitle.push(referenceTitleCollection[i].innerHTML);
+        tempRefernceDescription.push(referenceDescriptionCollection[i].innerHTML);
+    }
+
     $.ajax({
         url: '/resume',
         type: 'GET',
@@ -801,9 +887,19 @@ document.querySelector('#save-pdf').addEventListener('click', function(){
             phone: document.querySelector('.credentials-span-number').innerHTML,
             email: document.querySelector('.credentials-span-email').innerHTML,
     
-            summary: document.querySelector('#preview-summary').innerHTML,
-    
-            skills: document.querySelector('.preview-skills-table').innerHTML,
+            summary: tempSummary,
+            skills: skillsCollection,
+
+            experienceTimes: tempExperienceTime,
+            experienceTitles: tempExperienceTitle,
+            tempExperienceDescriptionResult: tempExperienceDescriptionResult,
+
+            educationTimes: tempEducationTime,
+            educationTitles: tempEducationTitle,
+            educationDescriptions: tempEducationDescription,
+
+            referenceTitles: tempRefernceTitle,
+            referencedescriptions: tempRefernceDescription,
     
         },
         success: function(data){
@@ -811,7 +907,6 @@ document.querySelector('#save-pdf').addEventListener('click', function(){
                 alert('Error');
             }
             if(data.status == true){
-                alert('success');
                 let testSkills = data.skillsTable;
                 window.location.href = '/result-display';
             }

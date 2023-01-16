@@ -2,11 +2,13 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const { title } = require('process');
+const puppeteer = require('puppeteer');
+const ejs = require('ejs');
+const ejsTemplate = fs.readFileSync('./views/resume.ejs', 'utf-8');
 
 const app = express(); 
 
 const PORT = process.env.PORT || 3060;
-
 
 app.use('/public', express.static('public'));
 app.use('/uploads', express.static('uploads'));
@@ -19,6 +21,10 @@ let phone;
 let email;
 let summary;
 let skills;
+let experienceTimes;
+let experienceTitles;
+let tempExperienceDescriptionResult; 
+
 
 app.get('/', (req,res)=>{
     res.render('landing.ejs');
@@ -26,10 +32,10 @@ app.get('/', (req,res)=>{
 
 app.get('/builder', (req,res)=>{
     res.render('builder.ejs')
-})
+});
 
 app.get('/resume', (req,res)=>{
-    var sqlValue = [req.query.titleName, req.query.birth, req.query.address, req.query.phone, req.query.email, req.query.summary, req.query.skills,];
+    var sqlValue = [req.query.titleName, req.query.birth, req.query.address, req.query.phone, req.query.email, req.query.summary, req.query.skills, req.query.experienceTimes, req.query.experienceTitles, req.query.tempExperienceDescriptionResult, req.query.educationTimes, req.query.educationTitles, req.query.educationDescriptions, req.query.referenceTitles, req.query.referencedescriptions];
 
     titleName = sqlValue[0];
     birth = sqlValue[1];
@@ -38,20 +44,47 @@ app.get('/resume', (req,res)=>{
     email = sqlValue[4];
     summary = sqlValue[5];
     skills = sqlValue[6];
+    experienceTimes = sqlValue[7];
+    experienceTitles = sqlValue[8];
+    tempExperienceDescriptionResult = sqlValue[9];
+    educationTimes = sqlValue[10];
+    educationTitles = sqlValue[11];
+    educationDescriptions = sqlValue[12];
+    referenceTitles = sqlValue[13];
+    referencedescriptions = sqlValue[14];
 
     res.json({ status : true , skillsTable : skills});
 
-    return titleName, birth, address, phone, email, summary, skills;
+    return titleName, birth, address, phone, email, summary, skills, experienceTimes, experienceTitles, tempExperienceDescriptionResult, educationTimes, educationTitles, educationDescriptions, referenceTitles, referencedescriptions;
 });
 
+async function generatePdf(html) {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.setContent(html);
+    const pdf = await page.pdf({
+      format: 'A4',
+      printBackground: true,
+      margin: {
+        
+      },
+    });
+    await browser.close();
+    return pdf;
+};
 
+app.get('/result-display', async (req,res)=>{
 
-app.get('/result-display', (req,res)=>{
-    res.render('resume.ejs', {titleName : titleName, birth : birth, address : address, phone : phone, email : email, summary : summary, skills : skills})
-})
-
-
-
+    // render the ejs file to html
+    const html = ejs.render(ejsTemplate, { titleName, birth, address, phone, email, summary, skills, experienceTimes, experienceTitles, tempExperienceDescriptionResult, educationTimes, educationTitles, educationDescriptions, referenceTitles, referencedescriptions });
+    // convert the html to pdf
+    const pdf = await generatePdf(html);
+    // set the headers
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', 'attachment; filename="resume.pdf"');
+    // send the pdf as response
+    res.send(pdf);
+});
 
 app.listen(PORT, ()=>{
     console.log(`Running on port ${PORT}`);
