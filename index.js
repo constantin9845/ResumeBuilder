@@ -74,6 +74,10 @@ async function generatePdf(html) {
 };
 
 console.log(puppeteer.executablePath())
+process.env.PUPPETEER_HOME = '/app/.apt/usr/';
+process.env.PUPPETEER_EXECUTABLE_PATH = '/.apt/usr/bin/google-chrome-stable';
+process.env.PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = 'true';
+
 
 app.get('/result-display', async (req,res)=>{
 
