@@ -73,6 +73,8 @@ async function generatePdf(html) {
     return pdf;
 };
 
+console.log('test test')
+
 
 app.get('/result-display', async (req,res)=>{
 
