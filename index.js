@@ -73,7 +73,7 @@ async function generatePdf(html) {
     return pdf;
 };
 
-console.log(puppeteer.executablePath())
+console.log(puppeteer.version)
 
 
 app.get('/result-display', async (req,res)=>{
