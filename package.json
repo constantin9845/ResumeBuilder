@@ -16,8 +16,8 @@
     "nodemon": "^2.0.20",
     "openai": "^3.1.0",
     "path": "^0.12.7",
-    "puppeteer": "^19.4.0",
-    "puppeteer-core": "^19.5.2",
+    "puppeteer": "^18.2.1",
+    "puppeteer-core": "^18.2.1",
     "puppeteer-render-text": "^2.1.3"
   }
 }
