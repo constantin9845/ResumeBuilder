@@ -1,3 +1,3 @@
-@echo off
+#!/bin/bash
 npm install
 npm start
