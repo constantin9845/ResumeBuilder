@@ -24,6 +24,11 @@ let skills;
 let experienceTimes;
 let experienceTitles;
 let tempExperienceDescriptionResult; 
+let educationTimes;
+let educationTitles;
+let educationDescriptions;
+let referenceTitles;
+let referencedescriptions;
 
 
 app.get('/', (req,res)=>{
