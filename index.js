@@ -59,7 +59,7 @@ app.get('/resume', (req,res)=>{
 });
 
 async function generatePdf(html) {
-    const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox'], ignoreDefaultArgs: ['--disable-extensions']});
+    const browser = await puppeteer.launch({ headless: true, args:['–no-sandbox', '–disable-setuid-sandbox'] });
     const page = await browser.newPage();
     await page.setContent(html);
     const pdf = await page.pdf({
@@ -72,8 +72,6 @@ async function generatePdf(html) {
     await browser.close();
     return pdf;
 };
-
-console.log('')
 
 app.get('/result-display', async (req,res)=>{
 
