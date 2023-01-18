@@ -73,6 +73,8 @@ async function generatePdf(html) {
     return pdf;
 };
 
+console.log('')
+
 app.get('/result-display', async (req,res)=>{
 
     // render the ejs file to html
