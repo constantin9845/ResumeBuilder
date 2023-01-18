@@ -71,7 +71,8 @@ async function generatePdf(html) {
       format: 'A4',
       printBackground: true,
       margin: {
-        
+        top: 0.5,
+        bottom: 0.5
       },
     });
     await browser.close();
@@ -94,3 +95,7 @@ app.get('/result-display', async (req,res)=>{
 app.listen(PORT, ()=>{
     console.log(`Running on port ${PORT}`);
 });
+
+// Start new templates, 
+// SOME SMALL STYLE ADJUSTMENTS ON TEMPLATE 1
+// Add possibility to change credentials when in edit mode
