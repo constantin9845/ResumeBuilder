@@ -71,8 +71,8 @@ async function generatePdf(html) {
       format: 'A4',
       printBackground: true,
       margin: {
-        top: 0.5,
-        bottom: 0.5
+        top: 1,
+        bottom: 1
       },
     });
     await browser.close();
@@ -97,5 +97,5 @@ app.listen(PORT, ()=>{
 });
 
 // Start new templates, 
-// SOME SMALL STYLE ADJUSTMENTS ON TEMPLATE 1
+// 
 // Add possibility to change credentials when in edit mode

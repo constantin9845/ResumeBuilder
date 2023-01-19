@@ -286,10 +286,3 @@ tbody{
 .content-div-reference .modify-div{
     width: 20%;
 }
-
-@media print{
-    /* Reduce the size of the element */
-   .preview-container {
-        transform: scale(0.6);
-   }
-}

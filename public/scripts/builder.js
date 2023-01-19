@@ -41,78 +41,118 @@ for (let i = 0; i < allTemplates.length; i++) {
     totalArr.push(allTemplateP[i]);
 };
 
-// SET UP POP UP
-buildView.style.display = 'none';
-var templateSelected = undefined;
+function runSetUp(){
+    // SET UP POP UP
+    buildView.style.display = 'none';
+    var templateSelected = undefined;
 
-for(let i = 0; i < totalArr.length; i++){
-    totalArr[i].addEventListener('click', function(event){
-        var element = event.target;
-
-        var id = element.id;
-
-        templateSelected = id;
-        
-        // template chosen => apply styling for preview container here
-        // // 
-        // //
-
-        // Fill in credentials
-        setup1.style.display = 'none';
-        setup2.style.display = 'flex';
-
-        saveCredentials.addEventListener('click', function(){
-            const myName = $('#full-name').val();
-            const myBirth =  $('#birth').val();
-            const myAddress = $('#address').val();
-            const myNumber = $('#number').val();
-            const myEmail = $('#email').val();
-
-            if(myName == '' || myAddress == '' || myEmail == ''){
-                alert('Fill in all required fields')
-                return;
-            }
-
-            // Show editor mode
-            setup2.style.display = 'none';
-            setupPopUp.style.display = 'none';
-            buildView.style.display = 'flex';
-
-            // Add new css file based on which template was chosen
-            function addCSSTemplate(template){
-                // Create the link element
-                var link = document.createElement("link");
-                link.href = `/public/css/template${template}.css`;
-                link.rel = "stylesheet";
-             
-                // Add the link element to the head of the HTML document
-                document.head.appendChild(link);
-            }
-
-            addCSSTemplate(templateSelected);
-
-
-            // fill in credentials + style
-            const previewName = document.querySelector('#preview-name');
-            const previewBirth = document.querySelector('.credentials-span-birth');
-            const previewAddress = document.querySelector('.credentials-span-address');
-            const previewNumber = document.querySelector('.credentials-span-number');
-            const previewEmail = document.querySelector('.credentials-span-email');
-
-            previewName.innerHTML = myName;
-            previewBirth.innerHTML = myBirth;
-            previewAddress.innerHTML = myAddress;
-            previewNumber.innerHTML = myNumber;
-            previewEmail.innerHTML = myEmail;
-
+    for(let i = 0; i < totalArr.length; i++){
+        totalArr[i].addEventListener('click', function(event){
+            var element = event.target;
+    
+            var id = element.id;
+    
+            templateSelected = id;
+            
+            // template chosen => apply styling for preview container here
+            // // 
+            // //
+    
+            // Fill in credentials
+            setup1.style.display = 'none';
+            setup2.style.display = 'flex';
+    
+            saveCredentials.addEventListener('click', function(){
+                const myName = $('#full-name').val();
+                const myBirth =  $('#birth').val();
+                const myAddress = $('#address').val();
+                const myNumber = $('#number').val();
+                const myEmail = $('#email').val();
+    
+                if(myName == '' || myAddress == '' || myEmail == ''){
+                    alert('Fill in all required fields')
+                    return;
+                }
+    
+                // Show editor mode
+                setup2.style.display = 'none';
+                setupPopUp.style.display = 'none';
+                buildView.style.display = 'flex';
+    
+                // Add new css file based on which template was chosen
+                function addCSSTemplate(template){
+                    // Check if a link element with class 'template-style' already exists
+                    let existingLink = document.querySelector('.template-style');
+                    if (existingLink) {
+                        // If a link element already exists, update the href attribute and return
+                        existingLink.href = `/public/css/template${template}.css`;
+                        return;
+                    }
+                    // Create the link element
+                    var link = document.createElement("link");
+                    link.className = 'template-style'
+                    link.href = `/public/css/template${template}.css`;
+                    link.rel = "stylesheet";
+                
+                    fetch(link.href)
+                        .then(response =>{
+                            if(response.ok){
+                                // Add the link element to the head of the HTML document
+                                document.head.appendChild(link);
+                                return;
+                            }
+                            else{
+                                console.log("template does not exist yet");
+                                return
+                            }   
+                        });
+                }
+    
+                addCSSTemplate(templateSelected);
+    
+    
+                // fill in credentials + style
+                const previewName = document.querySelector('#preview-name');
+                const previewBirth = document.querySelector('.credentials-span-birth');
+                const previewAddress = document.querySelector('.credentials-span-address');
+                const previewNumber = document.querySelector('.credentials-span-number');
+                const previewEmail = document.querySelector('.credentials-span-email');
+    
+                previewName.innerHTML = myName;
+                previewBirth.innerHTML = myBirth;
+                previewAddress.innerHTML = myAddress;
+                previewNumber.innerHTML = myNumber;
+                previewEmail.innerHTML = myEmail;
+    
+            })
+            return templateSelected;
         })
-        return templateSelected;
-    })
+    };
 }
 
+runSetUp();
 
+// RECALL SET UP POP UP
+const editCredentialsBtn = document.querySelector('.edit-credentials-nav-btn');
+editCredentialsBtn.addEventListener('click', function(){
 
+    // remove previous css file attached
 
+    // delete the link element
+    var link = document.querySelector('.template-style');
+
+    if(link) {
+        // delete template
+        link.remove();
+    } else {
+        // Template does not exist
+    }     
+
+    setupPopUp.style.display = 'unset';
+    setup1.style.display = 'unset';
+    setup2.style.display = 'none';
+    runSetUp();
+})
 
 
 const addSkill = document.querySelector('#add-skill');
@@ -918,9 +958,7 @@ document.querySelector('#save-pdf').addEventListener('click', function(){
 });
 
 
-// Create a pdf file from html
-// TO ADD TABLE DATA => TAKE ALL INPUTS SEPARATLY AND ADD TO NEW TABLE (DO NOT TAKE WHOLE HTML SECTION AS INPUT)
-
+// 
+// 
 // Create custom section creator, can choose category title etc..
-
 // Add AI text generator
