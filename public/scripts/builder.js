@@ -12,7 +12,6 @@ inputId.addEventListener('keydown',(event)=>{
 
 document.querySelector('#add-summary').addEventListener('click', ()=>{
     outputId.innerHTML = inputId.value;
-    outputId.style.textAlign = 'center';
 });
 
 // catching enter input to add <br>
@@ -33,8 +32,9 @@ const setup2 = document.querySelector('#setup-step2');
 
 const saveCredentials = document.querySelector('#save-credentials');
 
-var totalArr = [];
 
+// Run CV Template Set up
+var totalArr = [];
 for (let i = 0; i < allTemplates.length; i++) {
     totalArr.push(allTemplates[i]);
     totalArr.push(allTemplateImages[i]);
@@ -51,7 +51,7 @@ function runSetUp(){
             var element = event.target;
     
             var id = element.id;
-    
+            
             templateSelected = id;
             
             // template chosen => apply styling for preview container here
@@ -88,24 +88,26 @@ function runSetUp(){
                         existingLink.href = `/public/css/template${template}.css`;
                         return;
                     }
-                    // Create the link element
-                    var link = document.createElement("link");
-                    link.className = 'template-style'
-                    link.href = `/public/css/template${template}.css`;
-                    link.rel = "stylesheet";
-                
-                    fetch(link.href)
-                        .then(response =>{
-                            if(response.ok){
-                                // Add the link element to the head of the HTML document
-                                document.head.appendChild(link);
-                                return;
-                            }
-                            else{
-                                console.log("template does not exist yet");
-                                return
-                            }   
-                        });
+                    if(!existingLink){
+                        // Create the link element
+                        var link = document.createElement("link");
+                        link.className = 'template-style'
+                        link.href = `/public/css/template${template}.css`;
+                        link.rel = "stylesheet";
+                    
+                        fetch(link.href)
+                            .then(response =>{
+                                if(response.ok){
+                                    // Add the link element to the head of the HTML document
+                                    document.head.appendChild(link);
+                                    return;
+                                }
+                                else{
+                                    console.log("template does not exist yet");
+                                    return
+                                }   
+                            });
+                    }
                 }
     
                 addCSSTemplate(templateSelected);
@@ -123,6 +125,42 @@ function runSetUp(){
                 previewAddress.innerHTML = myAddress;
                 previewNumber.innerHTML = myNumber;
                 previewEmail.innerHTML = myEmail;
+
+                // STYLE ADJUSTMENTS FOR DIFFERENT TEMPLATES
+                if(templateSelected == 2){
+                    document.querySelector('#preview-birth').innerHTML = '';
+                    document.querySelector('#preview-address').innerHTML = '';
+                    document.querySelector('#preview-number').innerHTML = '';
+                    document.querySelector('#preview-email').innerHTML = '';
+
+                    let temp1 = document.querySelector('.credentials-span-birth').innerHTML;
+                    document.querySelector('.credentials-span-birth').innerHTML = `${temp1}  &#127874;`;
+
+                    let temp2 = document.querySelector('.credentials-span-address').innerHTML;
+                    document.querySelector('.credentials-span-address').innerHTML = `${temp2}  &#128205;`;
+
+                    let temp3 = document.querySelector('.credentials-span-number').innerHTML;
+                    document.querySelector('.credentials-span-number').innerHTML = `${temp3}  &#128222;`;
+
+                    let temp4 = document.querySelector('.credentials-span-email').innerHTML;
+                    document.querySelector('.credentials-span-email').innerHTML = `${temp4}  &#128231;`;
+
+
+                }
+                if(templateSelected == 1 || templateSelected == 3 || templateSelected == 4){
+                    document.querySelector('#preview-birth').innerHTML = 'Date of Birth';
+                    document.querySelector('#preview-address').innerHTML = 'Address';
+                    document.querySelector('#preview-number').innerHTML = 'Number';
+                    document.querySelector('#preview-email').innerHTML = 'Email';
+
+                    document.querySelector('.credentials-span-birth').innerHTML = myBirth;
+                    document.querySelector('.credentials-span-address').innerHTML = myAddress;
+                    document.querySelector('.credentials-span-number').innerHTML = myNumber;
+                    document.querySelector('.credentials-span-email').innerHTML = myEmail;
+
+                }
+
+                return;
     
             })
             return templateSelected;
@@ -130,7 +168,9 @@ function runSetUp(){
     };
 }
 
-runSetUp();
+window.addEventListener('load', function(){
+    runSetUp();
+});
 
 // RECALL SET UP POP UP
 const editCredentialsBtn = document.querySelector('.edit-credentials-nav-btn');
@@ -139,11 +179,15 @@ editCredentialsBtn.addEventListener('click', function(){
     // remove previous css file attached
 
     // delete the link element
-    var link = document.querySelector('.template-style');
+    var link = document.querySelectorAll('.template-style');
 
     if(link) {
-        // delete template
-        link.remove();
+        for(let i = 0; i < link.length; i++){
+            // delete template
+            link[i].remove();
+            console.log('Deleted all Previous css file');
+        }
+
     } else {
         // Template does not exist
     }     
@@ -151,8 +195,7 @@ editCredentialsBtn.addEventListener('click', function(){
     setupPopUp.style.display = 'unset';
     setup1.style.display = 'unset';
     setup2.style.display = 'none';
-    runSetUp();
-})
+});
 
 
 const addSkill = document.querySelector('#add-skill');
@@ -957,8 +1000,9 @@ document.querySelector('#save-pdf').addEventListener('click', function(){
     })
 });
 
-
 // 
 // 
-// Create custom section creator, can choose category title etc..
 // Add AI text generator
+// Finish template 2. 
+// 
+// ! EITHER RESUME.EJS STARTS LINKING THE CSS FILE OR WHOLE TEMPLATE CSS CONTENT NEEDS TO BE ADDED MANUALLY.
