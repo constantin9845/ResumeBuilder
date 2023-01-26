@@ -85,14 +85,14 @@ function runSetUp(){
                     let existingLink = document.querySelector('.template-style');
                     if (existingLink) {
                         // If a link element already exists, update the href attribute and return
-                        existingLink.href = `/public/css/template${template}.css`;
+                        existingLink.href = `/css/template${template}.css`;
                         return;
                     }
                     if(!existingLink){
                         // Create the link element
                         var link = document.createElement("link");
                         link.className = 'template-style'
-                        link.href = `/public/css/template${template}.css`;
+                        link.href = `/css/template${template}.css`;
                         link.rel = "stylesheet";
                     
                         fetch(link.href)
@@ -957,52 +957,79 @@ document.querySelector('#save-pdf').addEventListener('click', function(){
         tempRefernceDescription.push(referenceDescriptionCollection[i].innerHTML);
     }
 
-    $.ajax({
-        url: '/resume',
-        type: 'GET',
-        data: {
-            // Get all data
-    
-            // Heading
-            titleName: document.querySelector('#preview-name').innerHTML,
-            birth: document.querySelector('.credentials-span-birth').innerHTML,
-            address: document.querySelector('.credentials-span-address').innerHTML,
-            phone: document.querySelector('.credentials-span-number').innerHTML,
-            email: document.querySelector('.credentials-span-email').innerHTML,
-    
-            summary: tempSummary,
-            skills: skillsCollection,
+    // Check what template was selected to apply the styling
+    var link = document.querySelector('.template-style').href
+    link = link.replace('http://localhost:3060/css/', '');
 
-            experienceTimes: tempExperienceTime,
-            experienceTitles: tempExperienceTitle,
-            tempExperienceDescriptionResult: tempExperienceDescriptionResult,
-
-            educationTimes: tempEducationTime,
-            educationTitles: tempEducationTitle,
-            educationDescriptions: tempEducationDescription,
-
-            referenceTitles: tempRefernceTitle,
-            referencedescriptions: tempRefernceDescription,
-    
-        },
-        success: function(data){
-            if(data.status == false){
-                alert('Error');
-            }
-            if(data.status == true){
-                let testSkills = data.skillsTable;
-                window.location.href = '/result-display';
-            }
-        },
-        error: function (request, status, error) {
-            console.log(request.responseText);
+    async function getTemplate(link) {
+        try {
+            const response = await fetch(`/css/${link}`)
+            const data = await response.text();
+            return data;
+        } catch (error) {
+            console.error('Error:', error);
         }
-    })
+    }
+      
+    let cssContent;
+
+    // wait for fetch
+    (async () => {
+        cssContent = await getTemplate(link);
+        
+        if(cssContent != undefined){
+            $.ajax({
+                url: '/resume',
+                type: 'GET',
+                data: {
+                    // Get all data
+            
+                    // Heading
+                    titleName: document.querySelector('#preview-name').innerHTML,
+                    birth: document.querySelector('.credentials-span-birth').innerHTML,
+                    address: document.querySelector('.credentials-span-address').innerHTML,
+                    phone: document.querySelector('.credentials-span-number').innerHTML,
+                    email: document.querySelector('.credentials-span-email').innerHTML,
+            
+                    summary: tempSummary,
+                    skills: skillsCollection,
+        
+                    experienceTimes: tempExperienceTime,
+                    experienceTitles: tempExperienceTitle,
+                    tempExperienceDescriptionResult: tempExperienceDescriptionResult,
+        
+                    educationTimes: tempEducationTime,
+                    educationTitles: tempEducationTitle,
+                    educationDescriptions: tempEducationDescription,
+        
+                    referenceTitles: tempRefernceTitle,
+                    referencedescriptions: tempRefernceDescription,
+        
+                    cssContent : cssContent,
+            
+                },
+                success: function(data){
+                    if(data.status == false){
+                        alert('Error');
+                    }
+                    if(data.status == true){
+                        let testSkills = data.skillsTable;
+                        window.location.href = '/result-display';
+        
+                    }
+                },
+                error: function (request, status, error) {
+                    console.log(request.responseText);
+                }
+            })
+        }
+    })();
+
 });
 
 // 
 // 
 // Add AI text generator
-// Finish template 2. 
+// SOME DETAILS IN template 2. 
 // 
-// ! EITHER RESUME.EJS STARTS LINKING THE CSS FILE OR WHOLE TEMPLATE CSS CONTENT NEEDS TO BE ADDED MANUALLY.
+// ! THE CSS IS NOW BEING ADDED CORRECTLY! NEED TO REMOVE OLD CSS EVERY TIME!

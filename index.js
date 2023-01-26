@@ -4,14 +4,13 @@ const fs = require('fs');
 const { title } = require('process');
 const puppeteer = require('puppeteer');
 const ejs = require('ejs');
-const ejsTemplate = fs.readFileSync('./views/resume.ejs', 'utf-8');
+let ejsTemplate = fs.readFileSync('./views/resume.ejs', 'utf-8');
 
 const app = express(); 
 
 const PORT = process.env.PORT || 3060;
 
-app.use('/public', express.static('public'));
-app.use('/uploads', express.static('uploads'));
+app.use(express.static('public'));
 app.set('views');
 
 let titleName;
@@ -58,6 +57,11 @@ app.get('/resume', (req,res)=>{
     referenceTitles = sqlValue[13];
     referencedescriptions = sqlValue[14];
 
+    // Read the EJS file
+    let cssContent = req.query.cssContent;
+    ejsTemplate = ejsTemplate.replace('</head>', `<style>${cssContent}</style></head>`);
+
+
     res.json({ status : true , skillsTable : skills});
 
     return titleName, birth, address, phone, email, summary, skills, experienceTimes, experienceTitles, tempExperienceDescriptionResult, educationTimes, educationTitles, educationDescriptions, referenceTitles, referencedescriptions;
@@ -81,6 +85,8 @@ async function generatePdf(html) {
 
 app.get('/result-display', async (req,res)=>{
 
+    console.log(ejsTemplate)
+
     // render the ejs file to html
     const html = ejs.render(ejsTemplate, { titleName, birth, address, phone, email, summary, skills, experienceTimes, experienceTitles, tempExperienceDescriptionResult, educationTimes, educationTitles, educationDescriptions, referenceTitles, referencedescriptions });
     // convert the html to pdf
@@ -88,6 +94,7 @@ app.get('/result-display', async (req,res)=>{
     // set the headers
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Content-Disposition', 'attachment; filename="resume.pdf"');
+
     // send the pdf as response
     res.send(pdf);
 });
