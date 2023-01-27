@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous" defer></script>
+
+    <style>
+        /* 
+    Styling of new elements added in preview
+*/ 
+
+/* TEMPLATE 1 */ 
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.preview-container{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#preview-name{
+    font-size: 38px;
+    margin-left: 10%;
+    margin-top: 6%;
+    margin-bottom: 35px;
+    font-weight: 400;
+}
+
+.credential-line{
+    display: flex;
+    flex-direction: row;
+    min-width: fit-content;
+}
+
+.preview-credential{
+    margin-left: 12%;
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom: 5px;
+    width: 25%;
+}
+
+.credential-line span{
+    margin-left: 2%;
+    font-size: 20px;
+    font-weight: 300;
+    width: 100%;
+}
+
+/* summary */
+.preview-summary-container{
+    margin-top: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#preview-summary-title{
+    font-weight: 600;
+    font-size: 24px;
+    padding-bottom: 10px;
+    border-bottom: 10px solid rgb(86, 148, 219);
+}
+
+#preview-summary{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    text-align: center;
+    width: 95%;
+}
+
+/* skills */
+.preview-skills-container{
+    margin-top: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#preview-skills-title{
+    font-weight: 600;
+    font-size: 24px;
+    padding-bottom: 10px;
+    border-bottom: 10px solid rgb(86, 148, 219);
+    margin-bottom: 15px;
+}
+
+.preview-skills-table{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.skill-row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.skill-cell{
+    width: 33%;
+    font-size: 18px;
+    font-weight: 400;
+    text-decoration: dotted;
+    cursor: pointer;
+}
+
+tbody{
+    width: 100%;
+}
+
+.skill-cell:hover{
+    transition: 0.3s ease-in-out all;
+    color: red;
+}
+
+/* eXPERIENCE */
+.preview-experience-container{
+    margin-top: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#preview-experience-title{
+    font-weight: 600;
+    font-size: 24px;
+    padding-bottom: 10px;
+    border-bottom: 10px solid rgb(86, 148, 219);
+    margin-bottom: 15px;
+}
+
+.preview-experience-table{
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.experience-row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+
+.experience-row td{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+
+.time-div{
+    width: 25%;
+    padding: 5px;
+
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.content-div{
+    width: 75%;
+    padding: 5px;
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.modify-div p{
+    color: rgb(86, 148, 219);
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.modify-div p:hover{
+    color: red;
+}
+
+.title-div{
+    grid-area: 1 / 1 / 3 / 5;
+    font-weight: 600;
+}
+
+.modify-div{
+    grid-area: 1 / 5 / 3 / 7;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+};
+
+.title-div p{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.description-div{
+    grid-area: 3 / 1 / 9 / 7;
+    font-size: 14px;
+    padding-left: 2%;
+}
+
+
+/* Education */
+.preview-education-container{
+    margin-top: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#preview-education-title{
+    font-weight: 600;
+    font-size: 24px;
+    padding-bottom: 10px;
+    border-bottom: 10px solid rgb(86, 148, 219);
+    margin-bottom: 15px;
+}
+
+.preview-education-table{
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.education-row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+
+.education-row td{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+
+/* References */
+.preview-reference-container{
+    margin: 50px 10% 10% 10%;
+}
+
+#preview-reference-title{
+    font-weight: 600;
+    font-size: 24px;
+    padding-bottom: 10px;
+    border-bottom: 10px solid rgb(86, 148, 219);
+    margin-bottom: 15px;
+}
+
+.preview-reference-table{
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.single-reference{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+
+.single-reference td{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+
+.content-div-reference{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.content-div-reference .description-div{
+    width: 80%;
+}
+
+.reference-title{
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.reference-description{
+    font-size: 14px;
+    margin-left: 2%;
+}
+
+.content-div-reference .modify-div{
+    width: 20%;
+}
+    </style>
+
+    <title>Resume Craft - Template 1</title>
+</head>
+<body>
+    <div class="preview-container">
+        <div class="preview-template">
+            <div class="preview-credentials">
+                <p id="preview-name"><%= titleName %></p>
+                <div class="credential-line">
+                    <p class="preview-credential" id="preview-birth">Date of Birth</p>
+                    <span class="credentials-span-birth"><%= birth %></span>
+                </div>
+                <div class="credential-line">
+                    <p class="preview-credential" id="preview-address">Address</p>
+                    <span class="credentials-span-address"><%= address %></span>
+                </div>
+                <div class="credential-line">
+                    <p class="preview-credential" id="preview-number">Number</p>
+                    <span class="credentials-span-number"><%= phone %></span>
+                </div>
+                <div class="credential-line">
+                    <p class="preview-credential" id="preview-email">Email</p>
+                    <span class="credentials-span-email"><%= email %></span>
+                </div>
+            </div>
+            <div class="preview-summary-container">
+                <p id="preview-summary-title">Summary: <br></p>
+
+                <% if (summary == undefined) { %>
+                    <p id="preview-summary"></p>
+                <% } else { %>
+                    
+                    <% for(var i = 0; i < summary.length; i++) { %>
+
+                        <% if (summary[i] != undefined) { %>
+                            <p id="preview-summary"><%= summary[i] %></p>
+                        <% } else { %>
+                            <p id="preview-summary"></p>
+                        <% } %>
+
+                    <% } %>
+
+                <% } %>
+
+            </div>
+            <div class="preview-skills-container">
+                <p id="preview-skills-title">Essential Skills</p>
+                <table class="preview-skills-table display-skills-table">
+                    
+                    <% if (skills == undefined) { %>
+                        <p></p>
+                    <% } else { %>
+                        <tr class="skill-row">
+                            <% for(var i=0; i<3; i++) { %>
+                                <% if (skills[i] != undefined) { %>
+                                    <td class="skill-cell"><%= skills[i] %></td>
+                                <% } else { %>
+                                    <p></p>
+                                <% } %>
+                            <% } %>
+                        </tr>
+                        <tr class="skill-row">
+                            <% for(var i=3; i<6; i++) { %>
+                                <% if (skills[i] != undefined) { %>
+                                    <td class="skill-cell"><%= skills[i] %></td>
+                                <% } else { %>
+                                    <p></p>
+                                <% } %>
+                            <% } %>
+                        </tr>
+                        <tr class="skill-row">
+                            <% for(var i=6; i<9; i++) { %>
+                                <% if (skills[i] != undefined) { %>
+                                    <td class="skill-cell"><%= skills[i] %></td>
+                                <% } else { %>
+                                    <p></p>
+                                <% } %>
+                            <% } %>
+                        </tr>
+                    <% } %>
+                </table>
+            </div>
+            <div class="preview-experience-container">
+                <p id="preview-experience-title">Experience</p>
+                <table class="preview-experience-table">
+                    <% for(var i = 0; i < experienceTitles.length; i++) {%>
+
+
+                        <tr class="experience-row">
+                            <td>
+                                <div class="time-div">
+                                    <p class="experience-time"> <%= experienceTimes[i] %> </p>
+                                </div>
+                                <div class="content-div">
+                                    <div class="modify-div">
+    
+                                    </div>
+                                    <div class="title-div">
+                                        <p class="experience-title"> <%= experienceTitles[i] %> </p>
+                                    </div>
+                                    <div class="description-div">
+                                        
+                                        <% for(var k = 0; k < tempExperienceDescriptionResult[i].length; k++) {%>
+                                            <p class="experience-description"> <%= tempExperienceDescriptionResult[i][k] %> </p>
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>       
+
+                                
+
+                    <% } %>
+                </table>
+            </div>
+            <div class="preview-education-container">
+                <p id="preview-education-title">Education</p>
+                <table class="preview-education-table">
+                    <% for(var i = 0; i < educationTitles.length; i++) {%>
+
+
+                        <tr class="education-row single-education">
+                            <td>
+                                <div class="time-div">
+                                    <p class="education-time"> <%= educationTimes[i] %> </p>
+                                </div>
+                                <div class="content-div">
+                                    <div class="modify-div">
+    
+                                    </div>
+                                    <div class="title-div">
+                                        <p class="education-title"> <%= educationTitles[i] %> </p>
+                                    </div>
+                                    <div class="description-div">
+                                        
+                                        <p class="education-description"> <%= educationDescriptions[i] %> </p>
+
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>       
+
+
+                    <% } %>
+                </table>
+            </div>
+            <div class="preview-reference-container">
+                <p id="preview-reference-title">References</p>
+                <table class="preview-reference-table">
+                    <% for(var i = 0; i < referenceTitles.length; i++) {%>
+
+
+                        <tr class="reference-row single-reference">
+                            <td>
+                                <div class="content-div">
+                                    <div class="modify-div">
+    
+                                    </div>
+                                    <div class="title-div">
+                                        <p class="reference-title"> <%= referenceTitles[i] %> </p>
+                                    </div>
+                                    <div class="description-div">
+                                        
+                                        <p class="reference-description"> <%= referencedescriptions[i] %> </p>
+
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>       
+
+
+                    <% } %>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

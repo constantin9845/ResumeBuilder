@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/template3.css">
+
+
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous" defer></script>
+
+    <title>Resume Craft - Template 3</title>
+</head>
+<body>
+    <div class="preview-container">
+        <div class="preview-template">
+            <div class="preview-credentials">
+                <p id="preview-name"><%= titleName %></p>
+                <div class="credential-line">
+                    <p class="preview-credential" id="preview-birth">Date of Birth</p>
+                    <span class="credentials-span-birth"><%= birth %></span>
+                </div>
+                <div class="credential-line">
+                    <p class="preview-credential" id="preview-address">Address</p>
+                    <span class="credentials-span-address"><%= address %></span>
+                </div>
+                <div class="credential-line">
+                    <p class="preview-credential" id="preview-number">Number</p>
+                    <span class="credentials-span-number"><%= phone %></span>
+                </div>
+                <div class="credential-line">
+                    <p class="preview-credential" id="preview-email">Email</p>
+                    <span class="credentials-span-email"><%= email %></span>
+                </div>
+            </div>
+            <div class="preview-summary-container">
+                <p id="preview-summary-title">Summary: <br></p>
+
+                <% if (summary == undefined) { %>
+                    <p id="preview-summary"></p>
+                <% } else { %>
+                    
+                    <% for(var i = 0; i < summary.length; i++) { %>
+
+                        <% if (summary[i] != undefined) { %>
+                            <p id="preview-summary"><%= summary[i] %></p>
+                        <% } else { %>
+                            <p id="preview-summary"></p>
+                        <% } %>
+
+                    <% } %>
+
+                <% } %>
+
+            </div>
+            <div class="preview-skills-container">
+                <p id="preview-skills-title">Essential Skills</p>
+                <table class="preview-skills-table display-skills-table">
+                    
+                    <% if (skills == undefined) { %>
+                        <p></p>
+                    <% } else { %>
+                        <tr class="skill-row">
+                            <% for(var i=0; i<3; i++) { %>
+                                <% if (skills[i] != undefined) { %>
+                                    <td class="skill-cell"><%= skills[i] %></td>
+                                <% } else { %>
+                                    <p></p>
+                                <% } %>
+                            <% } %>
+                        </tr>
+                        <tr class="skill-row">
+                            <% for(var i=3; i<6; i++) { %>
+                                <% if (skills[i] != undefined) { %>
+                                    <td class="skill-cell"><%= skills[i] %></td>
+                                <% } else { %>
+                                    <p></p>
+                                <% } %>
+                            <% } %>
+                        </tr>
+                        <tr class="skill-row">
+                            <% for(var i=6; i<9; i++) { %>
+                                <% if (skills[i] != undefined) { %>
+                                    <td class="skill-cell"><%= skills[i] %></td>
+                                <% } else { %>
+                                    <p></p>
+                                <% } %>
+                            <% } %>
+                        </tr>
+                    <% } %>
+                </table>
+            </div>
+            <div class="preview-experience-container">
+                <p id="preview-experience-title">Experience</p>
+                <table class="preview-experience-table">
+                    <% for(var i = 0; i < experienceTitles.length; i++) {%>
+
+
+                        <tr class="experience-row">
+                            <td>
+                                <div class="time-div">
+                                    <p class="experience-time"> <%= experienceTimes[i] %> </p>
+                                </div>
+                                <div class="content-div">
+                                    <div class="modify-div">
+    
+                                    </div>
+                                    <div class="title-div">
+                                        <p class="experience-title"> <%= experienceTitles[i] %> </p>
+                                    </div>
+                                    <div class="description-div">
+                                        
+                                        <% for(var k = 0; k < tempExperienceDescriptionResult[i].length; k++) {%>
+                                            <p class="experience-description"> <%= tempExperienceDescriptionResult[i][k] %> </p>
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>       
+
+                                
+
+                    <% } %>
+                </table>
+            </div>
+            <div class="preview-education-container">
+                <p id="preview-education-title">Education</p>
+                <table class="preview-education-table">
+                    <% for(var i = 0; i < educationTitles.length; i++) {%>
+
+
+                        <tr class="education-row single-education">
+                            <td>
+                                <div class="time-div">
+                                    <p class="education-time"> <%= educationTimes[i] %> </p>
+                                </div>
+                                <div class="content-div">
+                                    <div class="modify-div">
+    
+                                    </div>
+                                    <div class="title-div">
+                                        <p class="education-title"> <%= educationTitles[i] %> </p>
+                                    </div>
+                                    <div class="description-div">
+                                        
+                                        <p class="education-description"> <%= educationDescriptions[i] %> </p>
+
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>       
+
+
+                    <% } %>
+                </table>
+            </div>
+            <div class="preview-reference-container">
+                <p id="preview-reference-title">References</p>
+                <table class="preview-reference-table">
+                    <% for(var i = 0; i < referenceTitles.length; i++) {%>
+
+
+                        <tr class="reference-row single-reference">
+                            <td>
+                                <div class="content-div">
+                                    <div class="modify-div">
+    
+                                    </div>
+                                    <div class="title-div">
+                                        <p class="reference-title"> <%= referenceTitles[i] %> </p>
+                                    </div>
+                                    <div class="description-div">
+                                        
+                                        <p class="reference-description"> <%= referencedescriptions[i] %> </p>
+
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>       
+
+
+                    <% } %>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

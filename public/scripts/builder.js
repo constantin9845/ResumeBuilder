@@ -959,82 +959,89 @@ document.querySelector('#save-pdf').addEventListener('click', function(){
 
     // Check what template was selected to apply the styling
     var link = document.querySelector('.template-style').href
+    let templateChosen;
 
     if(link.includes('http://localhost:3060/css/')){
         // link for local version
-        link = link.replace('http://localhost:3060/css/', '');
+
+        switch(link) {
+            case 'http://localhost:3060/css/template1.css':
+                templateChosen = 1;
+                break;
+            case 'http://localhost:3060/css/template2.css':
+                templateChosen = 2;
+                break;
+            case 'http://localhost:3060/css/template3.css':
+                templateChosen = 3;
+                break;
+            case 'http://localhost:3060/css/template4.css':
+                templateChosen = 4;
+                break;
+        }
     }
 
     if(link.includes('https://cv-craft.herokuapp.com/css/')){
         // link for local version
-        link = link.replace('https://cv-craft.herokuapp.com/css/', '');
-    }
 
-    console.log(link)
-
-    async function getTemplate(link) {
-        try {
-            const response = await fetch(`/css/${link}`)
-            const data = await response.text();
-            return data;
-        } catch (error) {
-            console.error('Error:', error);
+        switch(link) {
+            case 'https://cv-craft.herokuapp.com/css/template1.css':
+                templateChosen = 1;
+                break;
+            case 'https://cv-craft.herokuapp.com/css/template2.css':
+                templateChosen = 2;
+                break;
+            case 'https://cv-craft.herokuapp.com/css/template3.css':
+                templateChosen = 3;
+                break;
+            case 'https://cv-craft.herokuapp.com/css/template4.css':
+                templateChosen = 4;
+                break;
         }
     }
-      
-    let cssContent;
 
-    // wait for fetch
-    (async () => {
-        cssContent = await getTemplate(link);
-        
-        if(cssContent != undefined){
-            $.ajax({
-                url: '/resume',
-                type: 'GET',
-                data: {
-                    // Get all data
-            
-                    // Heading
-                    titleName: document.querySelector('#preview-name').innerHTML,
-                    birth: document.querySelector('.credentials-span-birth').innerHTML,
-                    address: document.querySelector('.credentials-span-address').innerHTML,
-                    phone: document.querySelector('.credentials-span-number').innerHTML,
-                    email: document.querySelector('.credentials-span-email').innerHTML,
-            
-                    summary: tempSummary,
-                    skills: skillsCollection,
-        
-                    experienceTimes: tempExperienceTime,
-                    experienceTitles: tempExperienceTitle,
-                    tempExperienceDescriptionResult: tempExperienceDescriptionResult,
-        
-                    educationTimes: tempEducationTime,
-                    educationTitles: tempEducationTitle,
-                    educationDescriptions: tempEducationDescription,
-        
-                    referenceTitles: tempRefernceTitle,
-                    referencedescriptions: tempRefernceDescription,
-        
-                    cssContent : cssContent,
-            
-                },
-                success: function(data){
-                    if(data.status == false){
-                        alert('Error');
-                    }
-                    if(data.status == true){
-                        let testSkills = data.skillsTable;
-                        window.location.href = '/result-display';
-        
-                    }
-                },
-                error: function (request, status, error) {
-                    console.log(request.responseText);
-                }
-            })
+    $.ajax({
+        url: '/resume',
+        type: 'GET',
+        data: {
+            // Get all data
+    
+            // Heading
+            titleName: document.querySelector('#preview-name').innerHTML,
+            birth: document.querySelector('.credentials-span-birth').innerHTML,
+            address: document.querySelector('.credentials-span-address').innerHTML,
+            phone: document.querySelector('.credentials-span-number').innerHTML,
+            email: document.querySelector('.credentials-span-email').innerHTML,
+    
+            summary: tempSummary,
+            skills: skillsCollection,
+
+            experienceTimes: tempExperienceTime,
+            experienceTitles: tempExperienceTitle,
+            tempExperienceDescriptionResult: tempExperienceDescriptionResult,
+
+            educationTimes: tempEducationTime,
+            educationTitles: tempEducationTitle,
+            educationDescriptions: tempEducationDescription,
+
+            referenceTitles: tempRefernceTitle,
+            referencedescriptions: tempRefernceDescription,
+
+            templateChosen : templateChosen,
+    
+        },
+        success: function(data){
+            if(data.status == false){
+                alert('Error');
+            }
+            if(data.status == true){
+                let testSkills = data.skillsTable;
+                window.location.href = '/result-display';
+            }
+        },
+        error: function (request, status, error) {
+            console.log(request.responseText);
         }
-    })();
+    })
 
 });
 
