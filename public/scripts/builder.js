@@ -960,11 +960,17 @@ document.querySelector('#save-pdf').addEventListener('click', function(){
     // Check what template was selected to apply the styling
     var link = document.querySelector('.template-style').href
 
-    // link for local version
-    link = link.replace('http://localhost:3060/css/', '');
+    if(link.includes('http://localhost:3060/css/')){
+        // link for local version
+        link = link.replace('http://localhost:3060/css/', '');
+    }
 
-    // Link for deployed version
-    link = link.replace('https://cv-craft.herokuapp.com/css/', '');
+    if(link.includes('https://cv-craft.herokuapp.com/css/')){
+        // link for local version
+        link = link.replace('https://cv-craft.herokuapp.com/css/', '');
+    }
+
+    console.log(link)
 
     async function getTemplate(link) {
         try {
