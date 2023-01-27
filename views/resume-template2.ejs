@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 
+
     <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -17,6 +18,8 @@
 
     <style>
         /* TEMPLATE 2 */ 
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');        
 
 *{
     padding: 0;
@@ -191,6 +194,7 @@ tbody{
     color: rgb(0, 30, 65);
 
     grid-area: 1 / 5 / 2 / 6;
+
 }
 
 .content-div{
@@ -344,6 +348,8 @@ tbody{
 }
     </style>
 
+    <script src="/scripts/main.js" defer></script>
+
     <title>Resume Craft - Template 2</title>
 </head>
 <body>
@@ -352,19 +358,19 @@ tbody{
             <div class="preview-credentials">
                 <p id="preview-name"><%= titleName %></p>
                 <div class="credential-line">
-                    <p class="preview-credential" id="preview-birth">Date of Birth</p>
+                    <p class="preview-credential" id="preview-birth"></p>
                     <span class="credentials-span-birth"><%= birth %></span>
                 </div>
                 <div class="credential-line">
-                    <p class="preview-credential" id="preview-address">Address</p>
+                    <p class="preview-credential" id="preview-address"></p>
                     <span class="credentials-span-address"><%= address %></span>
                 </div>
                 <div class="credential-line">
-                    <p class="preview-credential" id="preview-number">Number</p>
+                    <p class="preview-credential" id="preview-number"></p>
                     <span class="credentials-span-number"><%= phone %></span>
                 </div>
                 <div class="credential-line">
-                    <p class="preview-credential" id="preview-email">Email</p>
+                    <p class="preview-credential" id="preview-email"></p>
                     <span class="credentials-span-email"><%= email %></span>
                 </div>
             </div>
@@ -432,7 +438,6 @@ tbody{
 
 
                         <tr class="experience-row">
-                            <td>
                                 <div class="time-div">
                                     <p class="experience-time"> <%= experienceTimes[i] %> </p>
                                 </div>
@@ -450,7 +455,6 @@ tbody{
                                         <% } %>
                                     </div>
                                 </div>
-                            </td>
                         </tr>       
 
                                 
@@ -465,7 +469,6 @@ tbody{
 
 
                         <tr class="education-row single-education">
-                            <td>
                                 <div class="time-div">
                                     <p class="education-time"> <%= educationTimes[i] %> </p>
                                 </div>
@@ -482,7 +485,6 @@ tbody{
 
                                     </div>
                                 </div>
-                            </td>
                         </tr>       
 
 
@@ -496,7 +498,6 @@ tbody{
 
 
                         <tr class="reference-row single-reference">
-                            <td>
                                 <div class="content-div">
                                     <div class="modify-div">
     
@@ -510,7 +511,6 @@ tbody{
 
                                     </div>
                                 </div>
-                            </td>
                         </tr>       
 
 
