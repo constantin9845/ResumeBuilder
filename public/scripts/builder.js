@@ -1094,6 +1094,12 @@ document.querySelector('#save-pdf').addEventListener('click', function(){
             templateChosen : templateChosen,
     
         },
+        beforeSend: function() {
+            document.querySelector('.loader').style.display = 'block'
+        },
+        complete: function() {
+            document.querySelector('.loader').style.display = 'none'
+        },
         success: function(data){
             if(data.status == false){
                 alert('Error');
@@ -1112,7 +1118,7 @@ document.querySelector('#save-pdf').addEventListener('click', function(){
 
 // 
 // 
-// Add AI text generator
+// RESPONSIVENESS LEFT
 // 
 // 
 // 
