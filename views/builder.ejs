@@ -34,8 +34,6 @@
                 <div class="template_row">
                     <div id="1" class="template"><img class="template-img" id="1" src="/media/images/template1.png" alt="resume template"><p id="1" class="template-p">Template 1</p></div>
                     <div id="2" class="template"><img class="template-img" id="2" src="/media/images/template2.png" alt="resume template"><p id="2" class="template-p">Template 2</p></div>
-                    <div id="3" class="template"><img class="template-img" id="3" src="/media/images/template1.png" alt="resume template"><p id="3" class="template-p">Template 3</p></div>
-                    <div id="4" class="template"><img class="template-img" id="4" src="/media/images/template1.png" alt="resume template"><p id="4" class="template-p">Template 4</p></div>
                 </div>
             </div>
         </div>
@@ -83,6 +81,7 @@
         </div>
     </div>
     <div class="builder-view">
+        <div class="loader"></div>
         <div class="edit-container">
             <h2>Use the fields below to add your information</h2>
 
@@ -100,6 +99,7 @@
 
             <div class="edit-input">
                 <p class="edit-input-title">Describe your profile in a couple lines</p>
+                <p id="generate-summary">Generate Description</p>
                 <textarea name="edit-summary" id="edit-summary"></textarea>
                 <p id="add-summary">Save</p>
             </div>
@@ -161,6 +161,14 @@
         </div>
         <div class="preview-container">
             <div class="preview-template">
+                <div class="text-generator-container">
+                    <span id="close-generate-btn">Close</span>
+                    <p id="text-generator-container-title">Describe yourself in a few short sentences</p>
+                    <div class="text-generator-inputs">
+                        <textarea name="generator-input" id="generator-input" placeholder="I'm a Web-developer with 5 years of experience, I have worked for Google."></textarea>
+                        <p id="submit-generate">Generate</p>
+                    </div>
+                </div>
                 <div class="preview-credentials">
                     <p id="preview-name"></p>
                     <div class="credential-line">

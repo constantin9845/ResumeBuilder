@@ -4,6 +4,11 @@ const fs = require('fs');
 const { title } = require('process');
 const puppeteer = require('puppeteer');
 const ejs = require('ejs');
+const { Configuration, OpenAIApi } = require("openai");
+
+const configuration = new Configuration({
+    apiKey: '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',
+});
 
 const app = express(); 
 
@@ -28,6 +33,22 @@ let educationDescriptions;
 let referenceTitles;
 let referencedescriptions;
 let templateChosen;
+
+// Text generation with OpenAI
+app.get('/Generate-text', async (req,res)=>{
+    let generateData = req.query.generateData;
+
+
+    const openai = new OpenAIApi(configuration);
+
+    const completion = await openai.createCompletion({
+        prompt: generateData,
+        model: "text-davinci-003",
+        max_tokens: 1000,
+    })
+    
+    res.json({ status : true, generatedText : completion.data.choices[0].text})
+})
 
 
 app.get('/', (req,res)=>{
