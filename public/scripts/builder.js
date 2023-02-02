@@ -29,6 +29,7 @@ var allTemplateImages = document.querySelectorAll('.template-img');
 var allTemplateP = document.querySelectorAll('.template-p');
 const setup1 = document.querySelector('#setup-step1');
 const setup2 = document.querySelector('#setup-step2');
+const navBar = document.querySelector('.nav-bar');
 
 const saveCredentials = document.querySelector('#save-credentials');
 
@@ -45,6 +46,8 @@ function runSetUp(){
     // SET UP POP UP
     buildView.style.display = 'none';
     var templateSelected = undefined;
+
+    navBar.style.zIndex = '0';
 
     for(let i = 0; i < totalArr.length; i++){
         totalArr[i].addEventListener('click', function(event){
@@ -160,6 +163,8 @@ function runSetUp(){
 
                 }
 
+                navBar.style.zIndex = '9999';
+
                 return;
     
             })
@@ -177,6 +182,8 @@ const editCredentialsBtn = document.querySelector('.edit-credentials-nav-btn');
 editCredentialsBtn.addEventListener('click', function(){
 
     // remove previous css file attached
+
+    navBar.style.zIndex = '0';
 
     // delete the link element
     var link = document.querySelectorAll('.template-style');
