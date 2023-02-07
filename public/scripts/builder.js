@@ -1125,7 +1125,7 @@ document.querySelector('#save-pdf').addEventListener('click', function(){
 
 // 
 // 
-// RESPONSIVENESS LEFT
+// RESPONSIVENESS MACBOOK SIZE DONE
 // 
 // 
 // 
