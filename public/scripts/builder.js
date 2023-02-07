@@ -909,7 +909,43 @@ closeGenerateBtn.addEventListener('click', function(){
     generateWindow.style.opacity = '0';
 });
 
-document.querySelector('.loader').style.display = 'none'
+document.querySelector('.loader').style.display = 'none';
+
+// toggle edit and preview with button on smaller devices
+const toggleBtn = document.querySelector('.toggle-editor');
+const toggleData = document.querySelector('#toggle-data');
+const editContainer = document.querySelector('.edit-container');
+const previewContainer = document.querySelector('.preview-container');
+
+toggleBtn.addEventListener('click', function(){
+    // determine current state
+
+    let x = window.getComputedStyle(previewContainer).getPropertyValue('width')
+
+    // edit is on
+    if(x == '0px'){
+        editContainer.style.transitionDuration = '0.4s'
+        editContainer.style.width = '0%';
+        editContainer.style.opacity = '0';
+
+        previewContainer.style.transitionDuration = '0.4s'
+        previewContainer.style.width = '100%';
+
+        toggleData.innerHTML = 'Edit';
+    }
+
+    // preview is on
+    if(x != '0px'){
+        previewContainer.style.transitionDuration = '0.4s'
+        previewContainer.style.width = '0%';
+
+        editContainer.style.opacity = '1';
+        editContainer.style.transitionDuration = '0.4s'
+        editContainer.style.width = '100%';
+
+        toggleData.innerHTML = 'Preview';
+    }
+})
 
 submitGenerate.addEventListener('click', function(){
     let input = generateInput.value;

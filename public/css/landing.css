@@ -33,7 +33,7 @@
     width: 35%;
 }
 
-.nav-links p{
+.nav-links a{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,9 +42,11 @@
     width: 25%;
     font-size: 18px;
     font-weight: 600;
+    text-decoration: none;
+    color: black;
 }
 
-.nav-links p:hover{
+.nav-links a:hover{
     transition: 0.3s all ease-in-out;
     cursor: pointer;
     background-color: aliceblue;
@@ -188,4 +190,43 @@
 
 .information-small-container p{
     width: 65%;
+}
+
+.foot-note{
+    position: static;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1134px){
+    .nav-bar{
+        height: 100px;
+    }
+
+    .nav-links{
+        margin-right: 10%;
+    }
+
+    .nav-links a{
+        font-size: 22px;
+        margin-left: 8%;
+        margin-right: 8%;
+    }
+
+    .landing-intro-container{
+        margin-top: 15%;
+    }
+
+    .landing-information-container{
+        margin-top: 15%;
+    }
+
+    .information-content-2{
+        margin-top: 15%;
+    }
 }
