@@ -33,7 +33,6 @@ const navBar = document.querySelector('.nav-bar');
 
 const saveCredentials = document.querySelector('#save-credentials');
 
-
 // Run CV Template Set up
 var totalArr = [];
 for (let i = 0; i < allTemplates.length; i++) {
@@ -930,6 +929,7 @@ toggleBtn.addEventListener('click', function(){
 
         previewContainer.style.transitionDuration = '0.4s'
         previewContainer.style.width = '100%';
+        previewContainer.style.opacity = '1';
 
         toggleData.innerHTML = 'Edit';
     }
@@ -938,6 +938,7 @@ toggleBtn.addEventListener('click', function(){
     if(x != '0px'){
         previewContainer.style.transitionDuration = '0.4s'
         previewContainer.style.width = '0%';
+        previewContainer.style.opacity = '0';
 
         editContainer.style.opacity = '1';
         editContainer.style.transitionDuration = '0.4s'
