@@ -931,6 +931,8 @@ toggleBtn.addEventListener('click', function(){
         previewContainer.style.width = '100%';
         previewContainer.style.opacity = '1';
 
+        navBar.style.display = 'flex';
+
         toggleData.innerHTML = 'Edit';
     }
 
@@ -944,7 +946,11 @@ toggleBtn.addEventListener('click', function(){
         editContainer.style.transitionDuration = '0.4s'
         editContainer.style.width = '100%';
 
+        navBar.style.display = 'none';
+
         toggleData.innerHTML = 'Preview';
+
+
     }
 })
 
