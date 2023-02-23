@@ -12,26 +12,42 @@
 
     <link rel="stylesheet" href="/css/landing.css">
 
-    <script src="/scripts/landing.js" defer></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" defer></script>
 
     <title>Career Craft</title>
 </head>
 <body>
     <div class="landing_container">
-        <div class="nav-bar">
-            <img src="/media/images/logo.png" alt="logo" id="nav-logo">
-            <div class="nav-links">
-                <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="/builder">Resume</a>
-                <a class="nav-link" href="#">Contact</a>
-                <a class="nav-link" href="#">About</a>
+        <nav class="navbar navbar-expand-md navbar-light sticky-top" >
+            <a class="navbar-brand" href="/">
+                <img src="/media/images/logo.png" height="75" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="/builder">Resume</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/contact">Contact</a>
+                  </li>
+              </ul>
+
             </div>
-            <div class="nav-links-btn">
-                <div class="hamburger-line1"></div>
-                <div class="hamburger-line2"></div>
-                <div class="hamburger-line3"></div>
-            </div>
-        </div>
+          </nav>
+
         <div class="landing-intro-container">
             <div class="landing-intro-text">
                 <h1>The Ultimate Resume Builder.</h1>

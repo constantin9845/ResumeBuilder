@@ -908,6 +908,20 @@
 
 /* Credentials */
 @media screen and (max-width: 800px){
+
+    #setup-step2{
+        display: none;
+        position: absolute;
+        width: 100%;
+        flex-direction: column;
+    
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .credentials2{
+        position: absolute;
+    }
     
     .input-group2 label{
         color: white;
@@ -931,16 +945,13 @@
         font-size: 22px;
     }
 
-    .credentials2{
-        margin-top: 25%;
+    #save-credentials{
+        color: white;
         width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: black;
-        padding-bottom: 15%;
+        text-align: center;
+        font-size: 34px;
+        margin-top: 50px;
+        cursor: pointer;
     }
 }
 
