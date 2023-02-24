@@ -24,12 +24,10 @@ document.querySelector('#edit-experience-description').addEventListener('keydown
 
 const setupPopUp = document.querySelector('.initial-setup');
 const buildView = document.querySelector('.builder-view');
-var allTemplates = document.querySelectorAll('.template');
-var allTemplateImages = document.querySelectorAll('.template-img');
-var allTemplateP = document.querySelectorAll('.template-p');
+var allTemplates = document.querySelectorAll('.btn-outline-light');
 const setup1 = document.querySelector('#setup-step1');
 const setup2 = document.querySelector('#setup-step2');
-const navBar = document.querySelector('.nav-bar');
+
 
 const saveCredentials = document.querySelector('#save-credentials');
 
@@ -37,16 +35,14 @@ const saveCredentials = document.querySelector('#save-credentials');
 var totalArr = [];
 for (let i = 0; i < allTemplates.length; i++) {
     totalArr.push(allTemplates[i]);
-    totalArr.push(allTemplateImages[i]);
-    totalArr.push(allTemplateP[i]);
 };
 
 function runSetUp(){
     // SET UP POP UP
     buildView.style.display = 'none';
+    setup2.style.display = 'none'
+    document.querySelector('.navbar').style.display = 'none'
     var templateSelected = undefined;
-
-    navBar.style.zIndex = '0';
 
     for(let i = 0; i < totalArr.length; i++){
         totalArr[i].addEventListener('click', function(event){
@@ -80,6 +76,7 @@ function runSetUp(){
                 setup2.style.display = 'none';
                 setupPopUp.style.display = 'none';
                 buildView.style.display = 'flex';
+                document.querySelector('.navbar').style.display = 'flex'
     
                 // Add new css file based on which template was chosen
                 function addCSSTemplate(template){
@@ -162,8 +159,6 @@ function runSetUp(){
 
                 }
 
-                navBar.style.zIndex = '9999';
-
                 return;
     
             })
@@ -181,8 +176,9 @@ const editCredentialsBtn = document.querySelector('.edit-credentials-nav-btn');
 editCredentialsBtn.addEventListener('click', function(){
 
     // remove previous css file attached
+    buildView.style.display = 'none'
 
-    navBar.style.zIndex = '0';
+    document.querySelector('.navbar').style.display = 'none';
 
     // delete the link element
     var link = document.querySelectorAll('.template-style');
@@ -199,7 +195,7 @@ editCredentialsBtn.addEventListener('click', function(){
     }     
 
     setupPopUp.style.display = 'unset';
-    setup1.style.display = 'unset';
+    setup1.style.display = 'flex';
     setup2.style.display = 'none';
 });
 
@@ -1165,55 +1161,3 @@ document.querySelector('#save-pdf').addEventListener('click', function(){
     })
 
 });
-
-// Animate menu button on smaller devices
-const hamburgerBtn = document.querySelector('.nav-links-btn');
-const hamburgerLine1 = document.querySelector('.hamburger-line1');
-const hamburgerLine2 = document.querySelector('.hamburger-line2');
-const hamburgerLine3 = document.querySelector('.hamburger-line3');
-
-hamburgerBtn.addEventListener('click', function(){
-    // check current state of menu
-    let currState = getComputedStyle(hamburgerLine2)
-
-    if(screen.width < 700){
-        // menu closed
-        if(currState.opacity == 1){
-            hamburgerLine1.style.transitionDuration = '0.3s';
-            hamburgerLine2.style.transitionDuration = '0.3s';
-            hamburgerLine3.style.transitionDuration = '0.3s';
-
-            hamburgerLine2.style.opacity = 0;
-            hamburgerLine2.style.display = 'none';
-            hamburgerLine1.style.transform = 'translate(0, 5px) rotate(45deg)';
-            hamburgerLine3.style.transform = 'translate(0, -5px) rotate(-45deg)';
-
-            navLinks.style.transitionDuration = '0.3s';
-            navLinks.style.transform = 'translateY(0px)';
-        }
-        else{
-            hamburgerLine1.style.transitionDuration = '0.3s';
-            hamburgerLine2.style.transitionDuration = '0.3s';
-            hamburgerLine3.style.transitionDuration = '0.3s';
-
-            hamburgerLine2.style.opacity = 1;
-            hamburgerLine2.style.display = 'block';
-            hamburgerLine1.style.transform = 'translate(0, 0px) rotate(0deg)';
-            hamburgerLine3.style.transform = 'translate(0, 0px) rotate(0deg)';
-
-            navLinks.style.transitionDuration = '0.3s';
-            navLinks.style.transform = 'translateY(2000px)';
-        }
-    }
-
-    
-})
-
-const navLinks = document.querySelector('.nav-links');
-
-// 
-// 
-// RESPONSIVENESS MACBOOK SIZE DONE
-// 
-// 
-// 

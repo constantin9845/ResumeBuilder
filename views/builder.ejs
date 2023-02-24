@@ -18,7 +18,9 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
     crossorigin="anonymous" defer></script>
 
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" defer></script>
 
     <title>Resume Builder</title>
 </head>
@@ -30,22 +32,24 @@
                 <h1>Step 1</h1>
                 <p>Select your template:</p>
             </div>
-            <div class="templates">
-                <div class="template_row">
-                    <div id="1" class="template">
-                        <img class="template-img" id="1" src="/media/images/template1.png" alt="resume template">
-                        <div class="template-p-container">
-                            <p id="1" class="template-p">Template 1</p>
-                        </div>
-                    </div>
-                    <div id="2" class="template">
-                        <img class="template-img" id="2" src="/media/images/template2.png" alt="resume template">
-                        <div class="template-p-container">
-                            <p id="2" class="template-p">Template 2</p>
-                        </div>
-                    </div>
+
+
+            <div class="card-deck">
+                <div class="card">
+                  <img class="card-img-top" src="/media/images/template1.png" alt="Card image cap">
+                  <div class="card-body">
+                    <button id="1" type="button" class="btn btn-outline-light">Select</button>
+                  </div>
                 </div>
-            </div>
+                <div class="card">
+                  <img class="card-img-top" src="/media/images/template2.png" alt="Card image cap">
+                  <div class="card-body">
+                    <button id="2" type="button" class="btn btn-outline-light">Select</button>
+                  </div>
+                </div>
+              </div>
+
+
         </div>
         <div id="setup-step2" class="setup-window">
             <div class="close-setup"><a href="/">Close</a></div>
@@ -55,46 +59,64 @@
                 <span>* Required</span>
             </div>
             <div class="credentials2">
-                <div class="input-group2">
-                    <label for="full-name">Full name*</label>
-                    <input type="text" name="full-name" id="full-name" required>
-                </div>
-                <div class="input-group2">
-                    <label for="birth">Date of birth*</label>
-                    <input type="date" name="birth" id="birth">
-                </div>
-                <div class="input-group2">
-                    <label for="address">Address*</label>
-                    <input type="text" name="address" id="address">
-                </div>
-                <div class="input-group2">
-                    <label for="number">Phone Number</label>
-                    <input type="text" name="number" id="number">
-                </div>
-                <div class="input-group2">
-                    <label for="email">Email*</label>
-                    <input type="text" name="email" id="email">
-                </div>
+                <form>
+                    <div class="form-group">
+                      <label for="full-name">Full name*</label>
+                      <input type="email" class="form-control" id="full-name" placeholder="name@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="birth">Date of birth*</label>
+                        <input type="date" class="form-control" name="birth" id="birth">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address*</label>
+                        <input type="text" class="form-control" name="address" id="address">
+                    </div>
+                    <div class="form-group">
+                        <label for="number">Phone Number*</label>
+                        <input type="text" class="form-control" name="number" id="number">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        <input type="text" class="form-control" name="email" id="email">
+                    </div>
+
+                  </form>
 
                 <p id="save-credentials">Save</p>
             </div>
         </div>
     </div>
-    <div class="nav-bar">
-        <img src="/media/images/logo.png" alt="logo" id="nav-logo">
-        <div class="nav-links">
-            <a class="nav-link" href="/">Home</a>
-            <a class="nav-link" href="/builder">Resume</a>
-            <a class="nav-link" href="#">Contact</a>
-            <a class="nav-link" href="#">About</a>
-            <a id="save-pdf">Download</a>
+    <nav class="navbar navbar-expand-md navbar-light sticky-top" >
+        <a class="navbar-brand" href="/">
+            <img src="/media/images/logo.png" height="75" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/builder">Resume</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/contact">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a id="save-pdf" style="background-color: aliceblue; border-radius: 10px; cursor: pointer;" class="nav-link active">Download</a>
+            </li>
+          </ul>
+
         </div>
-        <div class="nav-links-btn">
-            <div class="hamburger-line1"></div>
-            <div class="hamburger-line2"></div>
-            <div class="hamburger-line3"></div>
-        </div>
-    </div>
+      </nav>
     <div class="builder-view">
         <div class="loader"></div>
         <div class="edit-container">
