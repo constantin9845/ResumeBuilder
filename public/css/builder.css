@@ -1397,6 +1397,7 @@
         position: absolute;
         height: 100%;
         width: 100%;
+        background-color: black;
     }
 
     .setup-window{
@@ -1413,7 +1414,10 @@
     }
 
     .credentials2{
-        width: 90%;
+        width: 100%;
+        padding-left: 5%;
+        padding-right: 5%;
+        background-color: black;
         margin-left: auto;
         margin-right: auto;
     }
@@ -1425,6 +1429,10 @@
     #save-credentials{
         background-color: black;
         color: red;
+    }
+
+    .credentials2-form{
+        height: 100vh;
     }
 }
 
