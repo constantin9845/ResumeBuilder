@@ -5,8 +5,20 @@
     scroll-behavior: smooth;
 }
 
+.content{
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+/* navbar */ 
 .navbar{
     background-color: white;
+    width: 100%;
+    padding-right: 5%;
+}
+
+.container-fluid{
+    width: 100%;
 }
 
 .navbar-brand{
@@ -14,12 +26,12 @@
 }
 
 .navbar-nav{
-    margin-left: 50%;
     font-size: 22px;
+    text-align: center;
 }
 
-.nav-item{
-    margin-left: 10%;
+.nav-link{
+    text-align: center;
 }
 
 .nav-item:hover{
@@ -36,7 +48,7 @@
 }
 
 #setup-step1{
-    margin-top: 5%;
+    padding-top: 5%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -216,7 +228,7 @@
 .edit-container{
     width: 35%;
     background-color: aliceblue;
-    height: 110%;
+    height: 100%;
 }
 
 .preview-container{
@@ -226,8 +238,10 @@
 }
 
 .edit-container h2{
-    margin-top: 20%;
+    margin-top: 5%;
+    font-size: 24px;
     margin-bottom: 5%;
+    margin-left: 2%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -240,14 +254,13 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    padding: 15px 0px;
-    margin-bottom: 50px;
     position: relative;
 }
 
 .edit-credentials-template-nav p{
     font-size: 20px;
     cursor: pointer;
+    margin: auto;
 }
 
 .edit-credentials-template-nav p:hover{
@@ -255,20 +268,21 @@
 }
 
 .edit-container-nav{
-    background-color: gainsboro;
     width: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 15px 0px;
-    margin-bottom: 50px;
-    position: relative;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
 }
 
 .edit-container-nav p{
     font-size: 18px;
     cursor: pointer;
+    flex: 1 0 20%;
+    margin: 5px 3px;
+    padding: 3px;
+    text-align: center;
+    background-color: gainsboro;
+    border-radius: 5px;
 }
 
 .edit-container-nav p:nth-child(1){
@@ -288,9 +302,9 @@
 }
 
 .edit-input-title{
-    font-size: 30px;
+    font-size: 22px;
     margin-left: 2%;
-    margin-top: 50px;
+    margin-top: 25px;
     margin-bottom: 35px;
 }
 
@@ -328,10 +342,11 @@
 
 #generate-summary{
     margin-left: 2%;
+    font-size: 18px;
     background-color: rgb(121, 161, 255);
     border-radius: 5px;
-    padding: 5px;
-    width: 35%;
+    padding: 10px 8px;
+    width: 50%;
     cursor: pointer;
 }
 
@@ -512,13 +527,6 @@
 }
 
 /* TEXT GENERATOR WINDOW */
-#generate-summary{
-    margin-left: 2%;
-    font-size: 28px;
-    width: 50%;
-    padding: 15px;
-    border-radius: 10px;
-}
 
 .text-generator-container{
     position: absolute;
@@ -685,452 +693,21 @@
 }
 
 /* Edit container */
-@media screen and (max-width: 1300px){
-    .edit-container h2{
-        margin-top: 25%;
-        margin-bottom: 5%;
+@media screen and (max-width: 1000px){
+   .edit-container{
         width: 100%;
-        display: flex;
-        justify-content: center;
-        font-size: 18px;
-    }
-
-    .edit-container-nav{
-        background-color: gainsboro;
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
-        padding: unset;
-        margin-bottom: unset;
-        position: unset;
-    }
-
-    .edit-container-nav p{
-        font-size: 20px;
-        cursor: pointer;
-        padding: 10px;
-    }
-
-    .edit-credentials-template-nav{
-        background-color: gainsboro;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: unset;
-        align-items: unset;
-        padding: 15px 0px;
-        margin-bottom: 50px;
-        position: relative;
-    }
-
-    .edit-credentials-template-nav p{
-        font-size: 20px;
-        cursor: pointer;
-        margin-left: 2%;
-    }
-}
-
-@media screen and (max-width: 1170px){
-    .edit-container h2{
-        margin-top: 35%;
-        margin-bottom: 5%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        font-size: 18px;
-    }
-
-    .edit-container-nav{
-        background-color: gainsboro;
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
-        padding: unset;
-        margin-bottom: unset;
-        position: unset;
-    }
-
-    .edit-container-nav p{
-        font-size: 20px;
-        cursor: pointer;
-        padding: 10px;
-    }
-
-    .edit-credentials-template-nav{
-        background-color: gainsboro;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: unset;
-        align-items: unset;
-        padding: 15px 0px;
-        margin-bottom: 50px;
-        position: relative;
-    }
-
-    .edit-credentials-template-nav p{
-        font-size: 20px;
-        cursor: pointer;
-        margin-left: 2%;
-    }
-
-    .edit-input-title{
-        font-size: 20px;
-        margin-left: 2%;
-        margin-top: unset;
-        margin-bottom: 35px;
-        width: 95%;
-    }
-}
-
-@media screen and (max-width: 1100px){
-    /* now toggle between edit and preview */
-    .edit-container{
-        width: 100%;
-    }
-
-    .preview-container{
+        padding-right: 5%;
+        padding-left: 5%;
+   }
+   .preview-container{
         display: none;
-    }
-
-    .edit-container h2{
-        margin-top: 10%;
-        margin-bottom: 5%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        font-size: 24px;
-    }
-
-    .edit-container-nav{
-        background-color: gainsboro;
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
-        padding: unset;
-        margin-bottom: unset;
-        position: unset;
-    }
-
-    .edit-container-nav p{
-        font-size: 24px;
-        cursor: pointer;
-        padding: 25px;
-    }
-
-    .edit-credentials-template-nav p{
-        font-size: 24px;
-        cursor: pointer;
-        margin-left: 2%;
-    }
-
-    .text-generator-container{
-        position: fixed;
-        top: 15%;
-        left: 0;
-        width: 100%;
-
-        z-index: 500;
-        background-color: rgb(239,242,249);
-    
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        border-radius: 5px;
-        box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-    
-        opacity: 0;
-        transform: translateX(-2000px);
-    }
-}
-
-@media screen and (max-width: 864px){
-    /* now toggle between edit and preview */
-    .edit-container{
-        width: 100%;
-    }
-
-    .preview-container{
-        display: none;
-    }
-
-    .edit-container h2{
-        margin-top: 15%;
-        margin-bottom: 5%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        font-size: 24px;
-    }
-
-    .edit-container-nav{
-        background-color: gainsboro;
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
-        padding: unset;
-        margin-bottom: unset;
-        position: unset;
-    }
-
-    .edit-container-nav p{
-        font-size: 24px;
-        cursor: pointer;
-        padding: 25px;
-    }
-
-    .edit-credentials-template-nav{
-        margin-top: 2%;
-    }
-}
-
-@media screen and (max-width: 600px){
-    /* now toggle between edit and preview */
-    .edit-container{
-        width: 100%;
-        padding-left: 3%;
-        padding-right: 3%;
-    }
-
-    .preview-container{
-        display: none;
-    }
-
-    .edit-container h2{
-        margin-top: 20%;
-        margin-bottom: 5%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        font-size: 24px;
-    }
-
-    .edit-container-nav{
-        background-color: gainsboro;
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
-        padding: unset;
-        margin-bottom: unset;
-        position: unset;
-    }
-
-    .edit-container-nav p{
-        font-size: 20px;
-        cursor: pointer;
-        padding: 25px;
-    }
-
-    .edit-credentials-template-nav{
-        margin-top: 2%;
-    }
-
-    .edit-credentials-template-nav p{
-        font-size: 20px;
-        cursor: pointer;
-        margin-left: 4%;
-        margin-top: 1%;
-    }
-
-
-}
-
-@media screen and (max-width: 550px){
-    /* now toggle between edit and preview */
-    .edit-container{
-        width: 100%;
-    }
-
-    .preview-container{
-        display: none;
-    }
-
-    .edit-container h2{
-        margin-top: 20%;
-        margin-bottom: 5%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        font-size: 18px;
-    }
-
-    .edit-container-nav{
-        background-color: gainsboro;
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
-        padding: unset;
-        margin-bottom: unset;
-        position: unset;
-    }
-
-    .edit-container-nav p{
-        font-size: 20px;
-        cursor: pointer;
-        padding: 25px;
-    }
-
-    .edit-credentials-template-nav{
-        margin-top: 2%;
-    }
-
-    .edit-credentials-template-nav p{
-        font-size: 20px;
-        cursor: pointer;
-        margin-left: 4%;
-        margin-top: 1%;
-    }
-}
-
-@media screen and (max-width: 500px){
-    /* now toggle between edit and preview */
-    .edit-container{
-        width: 100%;
-    }
-
-    .preview-container{
-        display: none;
-    }
-
-    .edit-container h2{
-        margin-top: 25%;
-        margin-bottom: 5%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        font-size: 18px;
-    }
-
-    .edit-container-nav{
-        background-color: gainsboro;
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
-        padding: unset;
-        margin-bottom: unset;
-        position: unset;
-    }
-
-    .edit-container-nav p{
-        font-size: 18px;
-        cursor: pointer;
-        padding: 20px;
-    }
-
-    .edit-credentials-template-nav{
-        margin-top: 2%;
-    }
-
-    .edit-credentials-template-nav p{
-        font-size: 18px;
-        cursor: pointer;
-        margin-left: 4%;
-        margin-top: 1%;
-    }
-}
-
-/* edit sections */
-@media screen and (max-width: 500px){
-    /* skills */
-    .edit-skills-input{
-        display: flex;
-        flex-direction: column;
-        margin-left: 2%;
-    }
-
-    .edit-skills-input input{
-        width: 95%;
-        border: none;
-        border-bottom: 0.1px solid gray;
-        font-size: 24px;
-        outline: none;
-        border-radius: 5px;
-        padding: 5px;
-    }
-
-    #add-skill{
-        width: 20%;
-        text-align: center;
-        border-radius: 5px;
-        border: none;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 50px;
-        padding: 10px;
-    
-        font-size: 38px;
-        background-color: antiquewhite;
-        cursor: pointer;
-    }
-
-    #add-experience{
-
-        padding: 10px;
-    
-        font-size: 38px;
-    }
-
-    #add-summary{
-        padding: 10px;
-    
-        font-size: 38px;
-    }
-
-    #add-education{
-        padding: 10px;
-    
-        font-size: 38px;
-    }
-
-    #add-reference{
-        padding: 10px;
-    
-        font-size: 38px;
-    }
+   }
 }
 
 /* navbar */ 
-@media screen and (max-width: 762px){
-    .navbar-brand{
-        margin-left: unset;
-    }
-    
-    .navbar-nav{
-        margin-left: unset;
+@media screen and (max-width: 992px){
+    .nav-link{
         font-size: 28px;
-        text-align: center;
-        padding-bottom: 5%;
-    }
-    
-    .nav-item{
-        margin-left: unset;
-        margin-top: 10%;
-
-    }
-    
-    .nav-item:hover{
-        border-bottom: 0.1px solid red;
     }
 }
 

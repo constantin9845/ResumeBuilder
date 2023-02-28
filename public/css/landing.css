@@ -754,6 +754,12 @@
 /* navbar */ 
 .navbar{
     background-color: white;
+    width: 100%;
+    padding-right: 5%;
+}
+
+.container-fluid{
+    width: 100%;
 }
 
 .navbar-brand{
@@ -761,37 +767,21 @@
 }
 
 .navbar-nav{
-    margin-left: 50%;
     font-size: 22px;
+    text-align: center;
 }
 
-.nav-item{
-    margin-left: 10%;
+.nav-link{
+    text-align: center;
 }
 
 .nav-item:hover{
     border-bottom: 0.1px solid red;
 }
 
-@media screen and (max-width: 762px){
-    .navbar-brand{
-        margin-left: unset;
-    }
-    
-    .navbar-nav{
-        margin-left: unset;
+/* navbar */ 
+@media screen and (max-width: 992px){
+    .nav-link{
         font-size: 28px;
-        text-align: center;
-        padding-bottom: 5%;
-    }
-    
-    .nav-item{
-        margin-left: unset;
-        margin-top: 10%;
-
-    }
-    
-    .nav-item:hover{
-        border-bottom: 0.1px solid red;
     }
 }

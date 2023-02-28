@@ -25,240 +25,242 @@
     <title>Resume Builder</title>
 </head>
 <body>
-    <div class="initial-setup">
-        <div id="setup-step1" class="setup-window">
-            <div class="close-setup"><a href="/">Close</a></div>
-            <div class="setup-titles">
-                <h1>Step 1</h1>
-                <p>Select your template:</p>
-            </div>
-
-
-            <div class="card-deck">
-                <div class="card">
-                  <img class="card-img-top" src="/media/images/template1.png" alt="Card image cap">
-                  <div class="card-body">
-                    <button id="1" type="button" class="btn btn-outline-light">Select</button>
-                  </div>
+    <div class="content">
+        <div class="initial-setup">
+            <div id="setup-step1" class="setup-window">
+                <div class="close-setup"><a href="/">Close</a></div>
+                <div class="setup-titles">
+                    <h1>Step 1</h1>
+                    <p>Select your template:</p>
                 </div>
-                <div class="card">
-                  <img class="card-img-top" src="/media/images/template2.png" alt="Card image cap">
-                  <div class="card-body">
-                    <button id="2" type="button" class="btn btn-outline-light">Select</button>
+    
+    
+                <div class="card-deck">
+                    <div class="card">
+                      <img class="card-img-top" src="/media/images/template1.png" alt="Card image cap">
+                      <div class="card-body">
+                        <button id="1" type="button" class="btn btn-outline-light">Select</button>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <img class="card-img-top" src="/media/images/template2.png" alt="Card image cap">
+                      <div class="card-body">
+                        <button id="2" type="button" class="btn btn-outline-light">Select</button>
+                      </div>
+                    </div>
                   </div>
+    
+    
+            </div>
+            <div id="setup-step2" class="setup-window">
+                <div class="close-setup"><a href="/">Close</a></div>
+                <div class="setup-titles-2">
+                    <h1>Step 2</h1>
+                    <p>Fill in:</p>
+                    <span>* Required</span>
                 </div>
-              </div>
-
-
-        </div>
-        <div id="setup-step2" class="setup-window">
-            <div class="close-setup"><a href="/">Close</a></div>
-            <div class="setup-titles-2">
-                <h1>Step 2</h1>
-                <p>Fill in:</p>
-                <span>* Required</span>
-            </div>
-            <div class="credentials2">
-                <form class="credentials2-form">
-                    <div class="form-group">
-                      <label for="full-name">Full name*</label>
-                      <input type="email" class="form-control" id="full-name" placeholder="name@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="birth">Date of birth*</label>
-                        <input type="date" class="form-control" name="birth" id="birth">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="address">Address*</label>
-                        <input type="text" class="form-control" name="address" id="address">
-                    </div>
-                    <div class="form-group">
-                        <label for="number">Phone Number*</label>
-                        <input type="text" class="form-control" name="number" id="number">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email*</label>
-                        <input type="text" class="form-control" name="email" id="email">
-                    </div>
-
-                    <p id="save-credentials">Save</p>
-
-                  </form>
+                <div class="credentials2">
+                    <form class="credentials2-form">
+                        <div class="form-group">
+                          <label for="full-name">Full name*</label>
+                          <input type="email" class="form-control" id="full-name" placeholder="name@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="birth">Date of birth*</label>
+                            <input type="date" class="form-control" name="birth" id="birth">
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="address">Address*</label>
+                            <input type="text" class="form-control" name="address" id="address">
+                        </div>
+                        <div class="form-group">
+                            <label for="number">Phone Number*</label>
+                            <input type="text" class="form-control" name="number" id="number">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email*</label>
+                            <input type="text" class="form-control" name="email" id="email">
+                        </div>
+    
+                        <p id="save-credentials">Save</p>
+    
+                      </form>
+                </div>
             </div>
         </div>
-    </div>
-    <nav class="navbar navbar-expand-md navbar-light sticky-top" >
-        <a class="navbar-brand" href="/">
-            <img src="/media/images/logo.png" height="75" alt="">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <nav class="navbar navbar-expand-lg navbar-light sticky-top" >
+            <a class="navbar-brand" href="/">
+                <img src="/media/images/logo.png" height="75" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/builder">Resume</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/about">About</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" href="/contact">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                      <a id="save-pdf" style="background-color: aliceblue; border-radius: 10px; cursor: pointer;" class="nav-link active">Download</a>
+                  </li>
+                </ul>
       
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="/builder">Resume</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="/about">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="/contact">Contact</a>
-            </li>
-            <li class="nav-item">
-                <a id="save-pdf" style="background-color: aliceblue; border-radius: 10px; cursor: pointer;" class="nav-link active">Download</a>
-            </li>
-          </ul>
-
-        </div>
-      </nav>
-    <div class="builder-view">
-        <div class="loader"></div>
-        <div class="edit-container">
-            <h2>Use the fields below to add your information</h2>
-
-            <div class="edit-container-nav">
-                <p class="edit-container-nav-btn">Summary</p>
-                <p class="edit-container-nav-btn">Skills</p>
-                <p class="edit-container-nav-btn">Experience</p>
-                <p class="edit-container-nav-btn">Education</p>
-                <p class="edit-container-nav-btn">References</p>
-                <p class="edit-container-nav-btn"></p>
-            </div>
-
-            <div class="edit-credentials-template-nav">
-                <p class="edit-credentials-nav-btn">Edit Credentials & Templates</p>
-            </div>
-
-            <div class="edit-input">
-                <p class="edit-input-title">Describe your profile in a couple lines</p>
-                <p id="generate-summary">Generate Description</p>
-                <textarea name="edit-summary" id="edit-summary"></textarea>
-                <p id="add-summary">Save</p>
-
-                <div class="text-generator-container">
-                    <span id="close-generate-btn">Close</span>
-                    <p id="text-generator-container-title">Describe yourself in a few short sentences</p>
-                    <div class="text-generator-inputs">
-                        <textarea name="generator-input" id="generator-input" placeholder="I'm a Web-developer with 5 years of experience, I have worked for Google."></textarea>
-                        <p id="submit-generate">Generate</p>
+              </div>
+          </nav>
+        <div class="builder-view">
+            <div class="loader"></div>
+            <div class="edit-container">
+                <h2>Use the fields below to add your information</h2>
+    
+                <div class="edit-container-nav">
+                    <p class="edit-container-nav-btn">Summary</p>
+                    <p class="edit-container-nav-btn">Skills</p>
+                    <p class="edit-container-nav-btn">Experience</p>
+                    <p class="edit-container-nav-btn">Education</p>
+                    <p class="edit-container-nav-btn">References</p>
+                    <p class="edit-container-nav-btn"></p>
+                </div>
+    
+                <div class="edit-credentials-template-nav">
+                    <p class="edit-credentials-nav-btn">Edit Credentials & Templates</p>
+                </div>
+    
+                <div class="edit-input">
+                    <p class="edit-input-title">Describe your profile in a couple lines</p>
+                    <p id="generate-summary">Generate Description</p>
+                    <textarea name="edit-summary" id="edit-summary"></textarea>
+                    <p id="add-summary">Save</p>
+    
+                    <div class="text-generator-container">
+                        <span id="close-generate-btn">Close</span>
+                        <p id="text-generator-container-title">Describe yourself in a few short sentences</p>
+                        <div class="text-generator-inputs">
+                            <textarea name="generator-input" id="generator-input" placeholder="I'm a Web-developer with 5 years of experience, I have worked for Google."></textarea>
+                            <p id="submit-generate">Generate</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="edit-input">
-                <p class="edit-input-title">Add your most valuable skills (Max 9)</p>
-                <span style="margin-bottom: 5px; margin-left: 2%; color: gray;">*Click on skill to Delete</span>
-                <div class="edit-skills-input">
-                    <input type="text" name="edit-skill" id="edit-skill">
-                    <p id="add-skill">Add</p>
-                </div>
-            </div>
-
-            <div class="edit-input">
-                <p class="edit-input-title">Describe your professional carreer so far</p>
-                <div class="edit-experience-input">
-                    <label for="edit-experience-time">Period</label>
-                    <input type="text" name="edit-experience-time" id="edit-experience-time">
-
-                    <label for="edit-experience-title">Job Title</label>
-                    <input type="text" name="edit-experience-title" id="edit-experience-title">
-
-                    <label for="edit-experience-description">Description</label>
-                    <textarea rows="10" type="text" name="edit-experience-description" id="edit-experience-description"></textarea>
-                    <p id="add-experience">Add</p>
-                </div>
-            </div>
-
-            <div class="edit-input">
-                <p class="edit-input-title">Academic achievements</p>
-                <div class="edit-education-input">
-                    <label for="edit-education-time">Period</label>
-                    <input type="text" name="edit-education-time" id="edit-education-time">
-
-                    <label for="edit-education-title">School</label>
-                    <input type="text" name="edit-education-title" id="edit-education-title">
-
-                    <label for="edit-education-description">Major</label>
-                    <input type="text" name="edit-education-description" id="edit-education-description">
-
-                    <p id="add-education">Add</p>
-                </div>
-            </div>
-
-            <div class="edit-input">
-                <p class="edit-input-title">Add References</p>
-                <div class="edit-reference-input">
-
-                    <label for="edit-reference-title">Name and Position</label>
-                    <input type="text" name="edit-reference-title" id="edit-reference-title">
-
-                    <label for="edit-reference-description">Contact Information</label>
-                    <input type="text" name="edit-reference-description" id="edit-reference-description">
-
-                    <p id="add-reference">Add</p>
-                </div>
-            </div>
-
-        </div>
-        <div class="preview-container">
-            <div class="preview-template">
-                <div class="preview-credentials">
-                    <p id="preview-name"></p>
-                    <div class="credential-line">
-                        <p class="preview-credential" id="preview-birth">Date of Birth</p>
-                        <span class="credentials-span-birth"></span>
-                    </div>
-                    <div class="credential-line">
-                        <p class="preview-credential" id="preview-address">Address</p>
-                        <span class="credentials-span-address"></span>
-                    </div>
-                    <div class="credential-line">
-                        <p class="preview-credential" id="preview-number">Number</p>
-                        <span class="credentials-span-number"></span>
-                    </div>
-                    <div class="credential-line">
-                        <p class="preview-credential" id="preview-email">Email</p>
-                        <span class="credentials-span-email"></span>
+    
+                <div class="edit-input">
+                    <p class="edit-input-title">Add your most valuable skills (Max 9)</p>
+                    <span style="margin-bottom: 5px; margin-left: 2%; color: gray;">*Click on skill to Delete</span>
+                    <div class="edit-skills-input">
+                        <input type="text" name="edit-skill" id="edit-skill">
+                        <p id="add-skill">Add</p>
                     </div>
                 </div>
-                <div class="preview-summary-container">
-                    <p id="preview-summary-title">Summary: <br></p>
-                    <p id="preview-summary"></p>
+    
+                <div class="edit-input">
+                    <p class="edit-input-title">Describe your professional carreer so far</p>
+                    <div class="edit-experience-input">
+                        <label for="edit-experience-time">Period</label>
+                        <input type="text" name="edit-experience-time" id="edit-experience-time">
+    
+                        <label for="edit-experience-title">Job Title</label>
+                        <input type="text" name="edit-experience-title" id="edit-experience-title">
+    
+                        <label for="edit-experience-description">Description</label>
+                        <textarea rows="10" type="text" name="edit-experience-description" id="edit-experience-description"></textarea>
+                        <p id="add-experience">Add</p>
+                    </div>
                 </div>
-                <div class="preview-skills-container">
-                    <p id="preview-skills-title">Essential Skills</p>
-                    <table class="preview-skills-table">
-
-                    </table>
+    
+                <div class="edit-input">
+                    <p class="edit-input-title">Academic achievements</p>
+                    <div class="edit-education-input">
+                        <label for="edit-education-time">Period</label>
+                        <input type="text" name="edit-education-time" id="edit-education-time">
+    
+                        <label for="edit-education-title">School</label>
+                        <input type="text" name="edit-education-title" id="edit-education-title">
+    
+                        <label for="edit-education-description">Major</label>
+                        <input type="text" name="edit-education-description" id="edit-education-description">
+    
+                        <p id="add-education">Add</p>
+                    </div>
                 </div>
-                <div class="preview-experience-container">
-                    <p id="preview-experience-title">Experience</p>
-                    <table class="preview-experience-table">
-
-                    </table>
+    
+                <div class="edit-input">
+                    <p class="edit-input-title">Add References</p>
+                    <div class="edit-reference-input">
+    
+                        <label for="edit-reference-title">Name and Position</label>
+                        <input type="text" name="edit-reference-title" id="edit-reference-title">
+    
+                        <label for="edit-reference-description">Contact Information</label>
+                        <input type="text" name="edit-reference-description" id="edit-reference-description">
+    
+                        <p id="add-reference">Add</p>
+                    </div>
                 </div>
-                <div class="preview-education-container">
-                    <p id="preview-education-title">Education</p>
-                    <table class="preview-education-table">
-
-                    </table>
-                </div>
-                <div class="preview-reference-container">
-                    <p id="preview-reference-title">References</p>
-                    <table class="preview-reference-table">
-
-                    </table>
+    
+            </div>
+            <div class="preview-container">
+                <div class="preview-template">
+                    <div class="preview-credentials">
+                        <p id="preview-name"></p>
+                        <div class="credential-line">
+                            <p class="preview-credential" id="preview-birth">Date of Birth</p>
+                            <span class="credentials-span-birth"></span>
+                        </div>
+                        <div class="credential-line">
+                            <p class="preview-credential" id="preview-address">Address</p>
+                            <span class="credentials-span-address"></span>
+                        </div>
+                        <div class="credential-line">
+                            <p class="preview-credential" id="preview-number">Number</p>
+                            <span class="credentials-span-number"></span>
+                        </div>
+                        <div class="credential-line">
+                            <p class="preview-credential" id="preview-email">Email</p>
+                            <span class="credentials-span-email"></span>
+                        </div>
+                    </div>
+                    <div class="preview-summary-container">
+                        <p id="preview-summary-title">Summary: <br></p>
+                        <p id="preview-summary"></p>
+                    </div>
+                    <div class="preview-skills-container">
+                        <p id="preview-skills-title">Essential Skills</p>
+                        <table class="preview-skills-table">
+    
+                        </table>
+                    </div>
+                    <div class="preview-experience-container">
+                        <p id="preview-experience-title">Experience</p>
+                        <table class="preview-experience-table">
+    
+                        </table>
+                    </div>
+                    <div class="preview-education-container">
+                        <p id="preview-education-title">Education</p>
+                        <table class="preview-education-table">
+    
+                        </table>
+                    </div>
+                    <div class="preview-reference-container">
+                        <p id="preview-reference-title">References</p>
+                        <table class="preview-reference-table">
+    
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="toggle-editor"><p id="toggle-data">Preview</p></div>
     </div>
-    <div class="toggle-editor"><p id="toggle-data">Preview</p></div>
 </body>
 
 </html>
