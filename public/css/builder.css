@@ -1395,7 +1395,7 @@
     /* set up 2 */
     #setup-step2{
         position: absolute;
-        height: 100vh;
+        height: 100%;
         width: 100%;
     }
 
