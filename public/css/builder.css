@@ -1407,6 +1407,8 @@
     }
 
     .credentials2{
+        height: 100vh;
+        overflow: scroll;
         width: 90%;
         margin-left: auto;
         margin-right: auto;
