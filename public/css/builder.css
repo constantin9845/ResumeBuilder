@@ -731,7 +731,7 @@
     }
 }
 
-/* summary */
+/* edit sections phone size */
 @media screen and (max-width: 500px){
     .edit-input-title{
         font-size: 18px;
@@ -749,7 +749,6 @@
         margin-right: 2%;
         margin-top: 15px;
         border-radius: 5px;
-        height: 40%;
         font-size: 15px;
         padding: 5px;
     }
@@ -777,6 +776,174 @@
         width: 50%;
         cursor: pointer;
     }
+
+    /* skills */
+    .edit-skills-input{
+        display: flex;
+        flex-direction: row;
+        margin-left: 2%;
+    }
+
+    .edit-skills-input input{
+        width: 65%;
+        border: none;
+        border-bottom: none;
+        font-size: 24px;
+        outline: none;
+        border-radius: 5px;
+        padding-left: 5px;
+    }
+
+    #add-skill{
+        width: 30%;
+        text-align: center;
+        border-radius: 5px;
+        border: none;
+        margin-left: 5%;
+
+        font-size: 38px;
+        background-color: antiquewhite;
+        cursor: pointer;
+    }
+
+    /* experience */
+
+    .edit-input:nth-child(5){
+        display: none;
+    }
+
+    .edit-experience-input{
+        display: flex;
+        flex-direction: column;
+        padding: 0% 2%;
+        height: 100%;
+    }
+
+    .edit-experience-input label{
+        font-size: 16px;
+    }
+
+    .edit-experience-input input{
+        border: none;
+        border-bottom: none;
+        background-color: white;
+        outline: none;
+        font-size: 20px;
+        padding-left: 5px;
+        margin-bottom: 25px;
+        border-radius: 5px;
+    }
+
+    .edit-experience-input textarea{
+        border: none;
+        border-bottom: none;
+        background-color: white;
+        outline: none;
+        font-size: 24px;
+        padding-left: 5px;
+        margin-bottom: 25px;
+        height: 200px;
+        border-radius: 5px;
+    }
+
+    #add-experience{
+        width: 30%;
+        text-align: center;
+        border-radius: 5px;
+        border: none;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+
+        font-size: 38px;
+        background-color: antiquewhite;
+        cursor: pointer;
+    }
+
+    /* education */
+    .edit-input:nth-child(6){
+        display: none;
+    }
+
+    .edit-education-input{
+        display: flex;
+        flex-direction: column;
+        padding: 0% 2%;
+    }
+
+    .edit-education-input label{
+        font-size: 16px;
+    }
+
+    .edit-education-input input{
+        border: none;
+        border-bottom: none;
+        background-color: white;
+        outline: none;
+        font-size: 20px;
+        padding-left: 5px;
+        margin-bottom: 25px;
+        border-radius: 5px;
+    }
+
+    #add-education{
+        width: 30%;
+        text-align: center;
+        border-radius: 5px;
+        border: none;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+
+        font-size: 38px;
+        background-color: antiquewhite;
+        cursor: pointer;
+    }
+
+    /* reference */
+    .edit-input:nth-child(7){
+        display: none;
+    }
+
+    .edit-reference-input{
+        display: flex;
+        flex-direction: column;
+        padding: 0% 2%;
+    }
+
+    .edit-reference-input label{
+        font-size: 16px;
+    }
+
+    .edit-reference-input input{
+        border: none;
+        border-bottom: none;
+        background-color: white;
+        outline: none;
+        font-size: 20px;
+        padding-left: 5px;
+        margin-bottom: 25px;
+        border-radius: 5px;
+    }
+
+    #add-reference{
+        width: 30%;
+        text-align: center;
+        border-radius: 5px;
+        border: none;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+
+        font-size: 38px;
+        background-color: antiquewhite;
+        cursor: pointer;
+    }
+
+    .edit-input:nth-child(8){
+        display: none;
+    }
+
 }
 
 /* navbar */ 
