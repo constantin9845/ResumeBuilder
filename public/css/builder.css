@@ -321,9 +321,12 @@
     margin-right: 2%;
     margin-top: 15px;
     border-radius: 5px;
-    height: 350px;
     font-size: 18px;
     padding: 5px;
+}
+
+#edit-summary{
+    height: 300px;
 }
 
 #add-summary{
@@ -428,6 +431,10 @@
     font-size: 38px;
     background-color: antiquewhite;
     cursor: pointer;
+}
+
+#edit-experience-description{
+    height: 300px;
 }
 
 /* education */
@@ -842,7 +849,6 @@
         font-size: 24px;
         padding-left: 5px;
         margin-bottom: 25px;
-        height: 200px;
         border-radius: 5px;
     }
 
