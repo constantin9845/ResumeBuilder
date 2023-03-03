@@ -44,7 +44,7 @@ app.get('/Generate-text', async (req,res)=>{
     const completion = await openai.createCompletion({
         prompt: generateData,
         model: "text-davinci-003",
-        max_tokens: 450,
+        max_tokens: 200,
     })
     
     res.json({ status : true, generatedText : completion.data.choices[0].text})

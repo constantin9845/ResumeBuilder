@@ -164,13 +164,12 @@ tbody{
     font-size: 16px;
 }
 
-.content-div{
-    width: 75%;
+.content-div {
+    width: 100%;
     padding: 5px;
-
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }
@@ -232,7 +231,6 @@ tbody{
     width: 95%;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
 }
 
@@ -309,4 +307,107 @@ tbody{
 
 .content-div-reference .modify-div{
     width: 20%;
+}
+
+/* preview sections phone size */
+@media screen and (max-width: 500px){
+    #preview-name {
+        font-size: 30px;
+        margin-left: 5%;
+        margin-top: 6%;
+        margin-bottom: 35px;
+        font-weight: 400;
+    }
+
+    .preview-credential {
+        margin-left: 8%;
+        font-weight: 600;
+        font-size: 13px;
+        margin-bottom: 5px;
+        width: 30%;
+    }
+
+    .credential-line span {
+        margin-left: 5%;
+        font-size: 15px;
+        font-weight: 300;
+        width: 100%;
+    }
+
+    .preview-summary-container {
+        margin-top: 50px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .preview-skills-container {
+        margin-top: 50px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .preview-experience-container {
+        margin-top: 50px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .preview-education-container {
+        margin-top: 50px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .preview-reference-container {
+        margin-top: 50px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    #preview-summary {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 15px;
+        text-align: center;
+        width: 95%;
+        font-size: 14px;
+    }
+
+    .skill-cell {
+        width: 33%;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: dotted;
+        cursor: pointer;
+    }
+
+    .time-div {
+        width: 30%;
+        padding: 5px;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .content-div {
+        width: 100%;
+        padding: 5px;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+
+    .modify-div {
+        FONT-WEIGHT: 500;
+        grid-area: 1 / 5 / 3 / 7;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .single-education{
+        width: 100%;
+    }
 }
