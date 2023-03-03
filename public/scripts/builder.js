@@ -909,8 +909,6 @@ document.querySelector('.loader').style.display = 'none';
 // toggle edit and preview with button on smaller devices
 const toggleBtn = document.querySelector('.toggle-editor');
 const toggleData = document.querySelector('#toggle-data');
-const editContainer = document.querySelector('.edit-container');
-const previewContainer = document.querySelector('.preview-container');
 
 toggleBtn.addEventListener('click', function(){
     // determine current state
@@ -1161,3 +1159,26 @@ document.querySelector('#save-pdf').addEventListener('click', function(){
     })
 
 });
+
+// toggle between edit and preview on smaller devices
+if(screen.width < 1000){
+    const showPreviewMode = document.querySelector('#toggle-preview');
+    const editContainer = document.querySelector('.edit-container');
+    const previewContainer = document.querySelector('.preview-container');
+    const showEditMode = document.querySelector('.to-edit-mode');
+
+    editContainer.style.transitionDuration = 'all 0.3s';
+    previewContainer.style.transitionDuration = 'all 0.3s';
+
+    showPreviewMode.addEventListener('click', function(){
+        editContainer.style.display = 'none';
+        previewContainer.style.display = 'unset';
+        previewContainer.style.width = '100%';
+    })
+
+    showEditMode.addEventListener('click', function(){
+        previewContainer.style.display = 'none';
+        editContainer.style.display = 'unset';
+        editContainer.style.width = '100%';
+    })
+}
