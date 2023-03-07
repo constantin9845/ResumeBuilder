@@ -728,8 +728,10 @@
    .preview-container{
         margin-top: 0px;
         display: none;
+        height: 100vh;
+        padding-bottom: 200px;
         overflow-y: scroll;
-        margin-bottom: 15%;
+        position: fixed;
    }
    /* to edit button */
     .to-edit-mode{

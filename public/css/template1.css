@@ -311,6 +311,11 @@ tbody{
 
 /* preview sections phone size */
 @media screen and (max-width: 500px){
+    .preview-container{
+        padding-top: 50px;
+        padding-bottom: 500px;
+    }
+
     #preview-name {
         font-size: 30px;
         margin-left: 5%;
