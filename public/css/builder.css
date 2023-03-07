@@ -706,12 +706,24 @@
 
 /* Edit container */
 @media screen and (max-width: 1000px){
+
+    .builder-view{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        overflow-x: hidden;
+        position: fixed
+    }
+
     .edit-container {
         width: 100%;
         padding-right: 5%;
         padding-left: 5%;
-        height: fit-content;
-        padding-bottom: 15%;
+        height: 100vh;
+        padding-bottom: 200px;
+        overflow-y: scroll;
+        position: fixed;
     }
    .preview-container{
         display: none;
