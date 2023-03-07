@@ -727,18 +727,20 @@
     }
    .preview-container{
         display: none;
+        overflow-y: scroll;
+        margin-bottom: 15%;
    }
    /* to edit button */
     .to-edit-mode{
-        position: absolute;
-        bottom: 5%;
-        right: 5%;
+        position: unset;
         background-color: red;
         display: unset;
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: 5px;
+        width: 100%;
+        margin: auto;
     }
 
     .to-edit-mode p{
