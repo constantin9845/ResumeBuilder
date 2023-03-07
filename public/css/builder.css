@@ -706,11 +706,13 @@
 
 /* Edit container */
 @media screen and (max-width: 1000px){
-   .edit-container{
+    .edit-container {
         width: 100%;
         padding-right: 5%;
         padding-left: 5%;
-   }
+        height: fit-content;
+        padding-bottom: 15%;
+    }
    .preview-container{
         display: none;
    }
