@@ -755,19 +755,13 @@
 .navbar{
     background-color: white;
     width: 100%;
-    padding-right: 5%;
-}
-
-.container-fluid{
-    width: 100%;
 }
 
 .navbar-brand{
     margin-left: 5%;
 }
-
 .navbar-nav{
-    font-size: 22px;
+    font-size: 26px;
     text-align: center;
 }
 
@@ -775,8 +769,16 @@
     text-align: center;
 }
 
+.nav-item{
+    margin-left: 5%;
+}
+
 .nav-item:hover{
     border-bottom: 0.1px solid red;
+}
+  
+.navbar-nav {
+    margin-left: auto;
 }
 
 /* navbar */ 

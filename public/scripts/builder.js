@@ -1161,6 +1161,11 @@ document.querySelector('#save-pdf').addEventListener('click', function(){
 });
 
 // toggle between edit and preview on smaller devices
+if(screen.width > 1000){
+    const showPreviewMode = document.querySelector('#toggle-preview');
+    showPreviewMode.innerHTML = '';
+}
+
 if(screen.width < 1000){
     const showPreviewMode = document.querySelector('#toggle-preview');
     const editContainer = document.querySelector('.edit-container');
