@@ -129,12 +129,16 @@ app.get('/result-display', async (req,res)=>{
 
     // send the pdf as response
     res.send(pdf);
+    
 });
 
 app.listen(PORT, ()=>{
     console.log(`Running on port ${PORT}`);
 });
 
-// Start new templates, 
+//  
 // 
-// Add possibility to change credentials when in edit mode
+// 1. EDIT CATEGORIES => REDIRECT TO EDIT WINDOW
+// 2. SAFARI NOT WORKING
+// 3. CHANGE BUILDER VIEW => SINGLE SCREEN?
+// 4. SET UP WINDOW NOT RESPONSIVE ENOUGH
