@@ -892,17 +892,7 @@ let submitGenerate = document.querySelector('#submit-generate');
 let generateInput = document.querySelector('#generator-input');
 let editSummary = document.querySelector('#edit-summary');
 
-openGenerateBtn.addEventListener('click', function(){
-    generateWindow.style.transitionDuration = '0.3s'
-    generateWindow.style.transform = 'translateX(0px)';
-    generateWindow.style.opacity = '1';
-});
 
-closeGenerateBtn.addEventListener('click', function(){
-    generateWindow.style.transitionDuration = '0.3s'
-    generateWindow.style.transform = 'translateX(-2000px)';
-    generateWindow.style.opacity = '0';
-});
 
 document.querySelector('.loader').style.display = 'none';
 
@@ -947,47 +937,6 @@ toggleBtn.addEventListener('click', function(){
 
     }
 })
-
-submitGenerate.addEventListener('click', function(){
-    let input = generateInput.value;
-
-    if(input == ''){
-        alert('Fill in the description!');
-        return;
-    }
-    let temp  = `Write me a resume description, please give me a text without listing items/subjects. here are some details about me: `;
-
-    let test = temp + input;
-
-    $.ajax({
-        url: '/Generate-text',
-        type: 'GET',
-        data: { generateData : test},
-        beforeSend: function() {
-            document.querySelector('.loader').style.display = 'block'
-        },
-        complete: function() {
-            document.querySelector('.loader').style.display = 'none'
-        },
-        success: function(data){
-            if(data.status == false){
-                alert('Error');
-            }
-            if(data.status == true){
-                editSummary.value = data.generatedText;
-                generateInput.value = '';
-                generateWindow.style.transitionDuration = '0.3s'
-                generateWindow.style.transform = 'translateX(-2000px)';
-                generateWindow.style.opacity = '0';
-
-            }
-        },
-        error: function (request, status, error) {
-            console.log(request.responseText);
-        }
-    })
-
-});
 
 // sending all data to server to generate result
 document.querySelector('#save-pdf').addEventListener('click', function(){
