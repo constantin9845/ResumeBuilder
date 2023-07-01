@@ -67,49 +67,59 @@ app.get('/resume', (req,res)=>{
 });
 
 async function generatePdf(html) {
-    const browser = await puppeteer.launch({ headless: true,  args: ['--no-sandbox']  });
-    const page = await browser.newPage();
-    await page.setContent(html);
-    const pdf = await page.pdf({
-      format: 'A4',
-      printBackground: true,
-      margin: {
-        top: 1,
-        bottom: 1
-      },
-    });
-    await browser.close();
-    return pdf;
+    try{
+        const browser = await puppeteer.launch({ headless: true,  args: ['--no-sandbox']  });
+        const page = await browser.newPage();
+        await page.setContent(html);
+        const pdf = await page.pdf({
+        format: 'A4',
+        printBackground: true,
+        margin: {
+            top: 1,
+            bottom: 1
+        },
+        });
+        await browser.close();
+        return pdf;
+    }
+    catch(error){
+        console.log(error)
+    }
 };
 
 app.get('/result-display', async (req,res)=>{
 
-    let ejsTemplate;
+    try{
+        let ejsTemplate;
 
-    if(templateChosen == 1){
-        ejsTemplate = fs.readFileSync('./views/resume-template1.ejs', 'utf-8');
-    }
-    if(templateChosen == 2){
-        ejsTemplate = fs.readFileSync('./views/resume-template2.ejs', 'utf-8');
-    }
-    if(templateChosen == 3){
-        ejsTemplate = fs.readFileSync('./views/resume-template3.ejs', 'utf-8');
-    }
-    if(templateChosen == 4){
-        ejsTemplate = fs.readFileSync('./views/resume-template4.ejs', 'utf-8');
-    }
+        if(templateChosen == 1){
+            ejsTemplate = fs.readFileSync('./views/resume-template1.ejs', 'utf-8');
+        }
+        if(templateChosen == 2){
+            ejsTemplate = fs.readFileSync('./views/resume-template2.ejs', 'utf-8');
+        }
+        if(templateChosen == 3){
+            ejsTemplate = fs.readFileSync('./views/resume-template3.ejs', 'utf-8');
+        }
+        if(templateChosen == 4){
+            ejsTemplate = fs.readFileSync('./views/resume-template4.ejs', 'utf-8');
+        }
 
 
-    // render the ejs file to html
-    const html = ejs.render(ejsTemplate, { titleName, birth, address, phone, email, summary, skills, experienceTimes, experienceTitles, tempExperienceDescriptionResult, educationTimes, educationTitles, educationDescriptions, referenceTitles, referencedescriptions });
-    // convert the html to pdf
-    const pdf = await generatePdf(html);
-    // set the headers
-    res.setHeader('Content-Type', 'application/pdf');
-    res.setHeader('Content-Disposition', 'attachment; filename="resume.pdf"');
+        // render the ejs file to html
+        const html = ejs.render(ejsTemplate, { titleName, birth, address, phone, email, summary, skills, experienceTimes, experienceTitles, tempExperienceDescriptionResult, educationTimes, educationTitles, educationDescriptions, referenceTitles, referencedescriptions });
+        // convert the html to pdf
+        const pdf = await generatePdf(html);
+        // set the headers
+        res.setHeader('Content-Type', 'application/pdf');
+        res.setHeader('Content-Disposition', 'attachment; filename="resume.pdf"');
 
-    // send the pdf as response
-    res.send(pdf);
+        // send the pdf as response
+        res.send(pdf);
+    }
+    catch(error){
+        console.log(error)
+    }
     
 });
 
